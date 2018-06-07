@@ -1,2 +1,21 @@
-<h1>Payvision - Rendering Transactions</h1>
-<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit maiores cum quia eaque? Iusto, sunt repellendus aliquid itaque eligendi nemo quae iure tempore inventore cupiditate molestias, sed ipsum blanditiis nisi?</p>
+<h1>Rendering Transactions</h1>
+<table *ngIf="transactions">
+  <thead>
+    <th>Name</th>
+    <th>Brand</th>
+    <th>Last 4 Digits</th>
+    <th>Transaction Type</th>
+    <th>Amount</th>
+    <th>Currency</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let transaction of transactions">
+      <td>{{ transaction.card.holderName }}</td>
+      <td>{{ transaction.brandId }}</td>
+      <td>{{ transaction.card.lastFourDigits }}</td>
+      <td>{{ transaction.action }}</td>
+      <td>{{ transaction.amount }}</td>
+      <td>{{ transaction.currencyCode }}</td>
+    </tr>
+  </tbody>
+</table>
