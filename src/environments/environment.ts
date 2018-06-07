@@ -3,6 +3,10 @@
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
+import { environment_config } from 'environments/environment.config';
+
 export const environment = {
-  production: false
+  production: false,
+  api_username: environment_config.PAYVISION_USERNAME || null,
+  api_secret: environment_config.PAYVISION_SECRET || null
 };
