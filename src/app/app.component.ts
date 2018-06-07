@@ -8,6 +8,4 @@ import { environment } from './../environments/environment';
 })
 export class AppComponent {
   title = 'app';
-  api_username = environment.api_username;
-  api_secret = environment.api_secret;
 }
