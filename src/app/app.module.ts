@@ -6,7 +6,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 // Services
-import { TokenInterceptor, DataService } from '@app/shared/services';
+import { ApiInterceptor, DataService } from '@app/shared/services';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { TokenInterceptor, DataService } from '@app/shared/services';
     DataService,
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor,
+      useClass: ApiInterceptor,
       multi: true
     }
   ],

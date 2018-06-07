@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { catchError, map } from 'rxjs/operators';
-import { Observable } from 'rxjs/Observable';
 
 import { apiConfig } from '@app/app.config';
 import { Transaction } from '@app/shared/models';
