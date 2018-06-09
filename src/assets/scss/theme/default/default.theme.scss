@@ -3,18 +3,11 @@
 
 @charset "UTF-8";
 
-// Core
-// Variables
-@import "core/variable.theme";
+// Helper
+@import "helper/helper.theme";
 
-// Mixins / Hel[ers
-@import "core/mixins.theme";
-
-// Reboot: reseted styles
-@import "core/reboot.theme";
+// Layout:
+@import "layout/layout.theme";
 
 // Components
-@import "component/button.theme";
-@import "component/icon.theme";
-@import "component/table.theme";
-@import "component/scaffold.theme";
+@import "component/component.theme";

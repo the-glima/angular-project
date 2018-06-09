@@ -1,21 +1,3 @@
 <h1>Rendering Transactions</h1>
-<table *ngIf="transactions">
-  <thead>
-    <th>Name</th>
-    <th>Brand</th>
-    <th>Last 4 Digits</th>
-    <th>Transaction Type</th>
-    <th>Amount</th>
-    <th>Currency</th>
-  </thead>
-  <tbody>
-    <tr *ngFor="let transaction of transactions">
-      <td>{{ transaction.card.holderName }}</td>
-      <td>{{ transaction.brandId }}</td>
-      <td>{{ transaction.card.lastFourDigits }}</td>
-      <td>{{ transaction.action }}</td>
-      <td>{{ transaction.amount }}</td>
-      <td>{{ transaction.currencyCode }}</td>
-    </tr>
-  </tbody>
-</table>
+
+<app-transactions></app-transactions>
