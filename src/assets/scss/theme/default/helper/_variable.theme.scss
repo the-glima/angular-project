@@ -40,7 +40,11 @@ $font-family-default: $font-sans-pro, $font-system;
 
 // Utils
 $transition: .06s !default;
-$border-radius: 8px !default;
+$border-radius: 2px !default;
+
+// Shadow
+$box-shadow-default: 6px 6px 2px -3px !default;
+$box-shadow-color-default: $c-grey-100 !default;
 
 // Breakpoints
 $container-xs: 320px !default;

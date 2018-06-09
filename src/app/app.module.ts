@@ -18,6 +18,8 @@ import { TransactionsComponent } from './components/transactions/transactions.co
 import { TransactionListComponent } from './components/transactions/transaction-list/transaction-list.component';
 import { TransactionItemComponent } from './components/transactions/transaction-item/transaction-item.component';
 import { TransactionCardComponent } from './components/transactions/transaction-item/transaction-card/transaction-card.component';
+import { DropdownComponent } from './components/dropdown/dropdown.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { TransactionCardComponent } from './components/transactions/transaction-
     TransactionsComponent,
     TransactionListComponent,
     TransactionItemComponent,
-    TransactionCardComponent
+    TransactionCardComponent,
+    DropdownComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

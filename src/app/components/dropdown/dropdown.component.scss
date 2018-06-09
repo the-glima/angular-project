@@ -1,0 +1,53 @@
+// Component: Dropdown
+// -------------------------------------
+
+// Theme: Default
+@import 'theme/default/default.theme';
+
+.dropdown { position: relative; }
+
+.dropdown-trigger {
+  @include button-base;
+  @include button-white;
+
+  .dropdown-active & {
+    // background-color: darken($c-pale-grey-two, 4%);
+    border-color: $c-topaz;
+    border-bottom: none;
+    @include border-bottom-radius(0);
+  }
+
+  .icon-arrow-down {
+    margin-left: 14px;
+    transition: .2s cubic-bezier(0.6, -0.28, 0.74, 0.05);
+
+    .dropdown-active & {
+      transform: rotate(-180deg);
+    }
+  }
+}
+
+.dropdown-list {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: calc(100% - 2px);
+  background-color: white;
+  border: 1px solid $c-topaz;
+  border-top: 0;
+  @include shadow;
+}
+
+.dropdown-option {
+  @include button-base;
+  display: block;
+  width: 100%;
+  color: transparentize($c-primary, .2);
+  text-align: left;
+  border-top: 1px solid $c-pale-grey-two;
+
+  &:hover {
+    color: $c-primary;
+    background-color: $c-pale-grey-two;
+  }
+}

@@ -14,6 +14,27 @@
   color: transparent;
 }
 
+// Border radius
+@mixin border-top-radius($radius) {
+  border-top-right-radius: $radius;
+  border-top-left-radius: $radius;
+}
+
+@mixin border-right-radius($radius) {
+  border-bottom-right-radius: $radius;
+  border-top-right-radius: $radius;
+}
+
+@mixin border-bottom-radius($radius) {
+  border-bottom-right-radius: $radius;
+  border-bottom-left-radius: $radius;
+}
+
+@mixin border-left-radius($radius) {
+  border-bottom-left-radius: $radius;
+  border-top-left-radius: $radius;
+}
+
 // Trinagle border icons
 @mixin icon-triangle-up($color, $size) {
   border-style: solid;
@@ -87,6 +108,14 @@
   &:nth-child(2) { flex-basis: 10%; }
   &:nth-child(3) { flex-basis: 10%; }
   &:nth-child(4) { flex-basis: 14%; }
+}
+
+// Shadow
+@mixin shadow(
+  $box-shadow: $box-shadow-default,
+  $box-shadow-color: $box-shadow-color-default,
+  $important: null) {
+  box-shadow: $box-shadow $box-shadow-color $important;
 }
 
 // Zindex - Function

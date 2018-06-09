@@ -1,0 +1,19 @@
+<div [ngClass]="{'dropdown-active': showDropdown }" class="dropdown">
+  <button (click)="toggleDropdown()" (click)="clickedInside($event)" class="dropdown-trigger">
+    <span>Transaction Type</span>
+    <svg class="icon-arrow-down">
+      <use xlink:href="#icon-arrow-down" />
+    </svg>
+  </button>
+  <ul *ngIf="showDropdown" class="dropdown-list">
+    <li (click)="clickedInside($event)" class="dropdown-list-item">
+      <button class="dropdown-option">Payment</button>
+    </li>
+    <li (click)="clickedInside($event)" class="dropdown-list-item">
+      <button class="dropdown-option">Authorize</button>
+    </li>
+    <li (click)="clickedInside($event)" class="dropdown-list-item">
+      <button class="dropdown-option">Credit</button>
+    </li>
+  </ul>
+</div>
