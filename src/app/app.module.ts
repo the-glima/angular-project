@@ -6,11 +6,26 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 // Services
-import { ApiInterceptor, DataService } from '@app/shared/services';
+import {
+  ApiInterceptor,
+  DataService,
+  TransactionService,
+  CreditCardService
+ } from '@app/shared/services';
+
+// Components: Transaction
+import { TransactionsComponent } from './components/transactions/transactions.component';
+import { TransactionListComponent } from './components/transactions/transaction-list/transaction-list.component';
+import { TransactionItemComponent } from './components/transactions/transaction-item/transaction-item.component';
+import { TransactionCardComponent } from './components/transactions/transaction-item/transaction-card/transaction-card.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TransactionsComponent,
+    TransactionListComponent,
+    TransactionItemComponent,
+    TransactionCardComponent
   ],
   imports: [
     BrowserModule,
@@ -19,6 +34,8 @@ import { ApiInterceptor, DataService } from '@app/shared/services';
   ],
   providers: [
     DataService,
+    TransactionService,
+    CreditCardService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ApiInterceptor,

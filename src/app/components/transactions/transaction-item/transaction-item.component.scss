@@ -1,0 +1,39 @@
+// Component: Transaction Item
+// -------------------------------------
+
+// Theme: Default
+@import 'theme/default/default.theme';
+
+.transaction-table-row {
+  display: flex;
+  padding: 18px 14px;
+  cursor: pointer;
+  font-weight: 600;
+  color: lighten($c-text-default, 20%);
+  border-top: 1px solid $c-grey-100;
+  border-bottom: 1px solid transparent;
+  transition: $transition;
+
+  &:hover {
+    color: $c-text-default;
+    background-color: lighten($c-pale-grey, 1%);
+  }
+
+  &.active {
+    color: $c-text-default;
+    font-weight: 600;
+    background-color: lighten($c-pale-grey, 1%);
+    border-bottom-color: $c-grey-100;
+  }
+}
+
+.transaction-table-cell {
+  @include table-cell-space;
+  padding: 0 4px;
+}
+
+.transactions-info {
+  display: flex;
+  padding: 30px 0;
+  background-color: darken($c-pale-grey, 1%);
+}
