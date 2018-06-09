@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+
 import { Transaction } from '@app/shared/models';
 
 @Component({

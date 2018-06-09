@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Transaction } from '@app/shared/models';
 import { DataService } from '@app/shared/services';
-import { TransactionService } from '@app/shared/services/transaction.service';
 
 @Component({
   selector: 'app-transaction-list',
@@ -10,12 +9,9 @@ import { TransactionService } from '@app/shared/services/transaction.service';
 })
 export class TransactionListComponent implements OnInit {
   transactions: Transaction;
-  // transactionSelected: Transaction;
-  // transactionToggle: boolean = false;
 
   constructor(
     private dataService: DataService
-    // private transactionService: TransactionService
   ) {}
 
   ngOnInit() {
@@ -24,7 +20,7 @@ export class TransactionListComponent implements OnInit {
   }
 
   private getTransactions() {
-    this.dataService.getTranscations()
+    this.dataService.getTranscations(null)
       .subscribe(
         (transactions: Transaction) => {
           this.transactions = transactions;

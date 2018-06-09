@@ -7,15 +7,18 @@ import { Transaction } from '@app/shared/models';
 
 @Injectable()
 export class DataService {
-
   constructor(
     private httpClient: HttpClient,
   ) {}
 
-  getTranscations() {
-    const params = new HttpParams();
+  getTranscations(filter: any) {
+    let params = new HttpParams();
 
-    return this.httpClient.get(apiConfig.url, {params}).pipe(
+    if (filter) {
+      params = params.append(filter.type, filter.value);
+    }
+
+    return this.httpClient.get(apiConfig.transaction_url, {params}).pipe(
       map((response: Response) => {
         const data: any = response;
 

@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
 
 @Component({
   selector: 'app-dropdown',
@@ -6,6 +6,8 @@ import { Component, HostListener } from '@angular/core';
   styleUrls: ['./dropdown.component.scss']
 })
 export class DropdownComponent {
+  @Input() filterCollection: any;
+  @Input() textTransform: string;
   private showDropdown: boolean = false;
 
   toggleDropdown() {
