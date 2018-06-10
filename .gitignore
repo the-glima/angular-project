@@ -48,3 +48,6 @@ environment.config.ts
 
 # HTTP
 *.http
+
+# History Files
+.history/
