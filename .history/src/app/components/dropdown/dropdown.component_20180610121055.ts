@@ -40,9 +40,8 @@ export class DropdownComponent implements AfterViewInit {
       dropdownOptionSelected: optionSelected
     };
 
-    this.optionSelected = this.title.nativeElement.innerHTML = optionSelected;
     this.renderer.setStyle(this.trigger.nativeElement, 'text-transform', `${this.dropdownOptionText}`);
-
+    this.optionSelected = optionSelected;
     this.dropdownService.dropdownOptionSelected.emit(dropdown);
     this.hideDropdown();
   }

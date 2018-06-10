@@ -9,8 +9,8 @@
   <div *ngIf="showDropdown" class="dropdown-list">
     <div *ngIf="optionSelected" class="dropdown-option-label">{{ dropdowbObject.title }}</div>
     <ul>
-      <li *ngFor="let dropdownOption of dropdowbObject.list" class="dropdown-list-item">
-        <button (click)="clickOption($event, dropdowbObject, dropdownOption)" [ngClass]="dropdownOptionText" class="dropdown-option">{{ dropdownOption }}</button>
+      <li *ngFor="let dropdownOption of dropdowbObject.list" (click)="clickedInside($event)" class="dropdown-list-item">
+        <button (click)="clickOption(dropdowbObject, dropdownOption)" [ngClass]="dropdownOptionText" class="dropdown-option">{{ dropdownOption }}</button>
       </li>
     </ul>
   </div>

@@ -3,10 +3,12 @@ export const apiConfig = {
   transaction_filters: {
     paymentType: {
       title: 'Transaction Type',
+      filter: 'action',
       list: ['payment', 'authorize', 'credit']
     },
     currencyCode: {
       title: 'Currency',
+      filter: 'currencyCode',
       list: ['USD', 'EUR', 'GBP']
     }
   }

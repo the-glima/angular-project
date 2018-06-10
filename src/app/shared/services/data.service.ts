@@ -4,6 +4,7 @@ import { catchError, map } from 'rxjs/operators';
 
 import { apiConfig } from '@app/app.config';
 import { Transaction } from '@app/shared/models';
+import { FilterParam } from '@app/shared/models/filter-param.model';
 
 @Injectable()
 export class DataService {
@@ -11,11 +12,14 @@ export class DataService {
     private httpClient: HttpClient,
   ) {}
 
-  getTranscations(filter: any) {
+  getTranscations(filterParam: FilterParam) {
     let params = new HttpParams();
 
-    if (filter) {
-      params = params.append(filter.type, filter.value);
+    if (filterParam) {
+      const filterType = filterParam.filterType;
+      const filterValue = filterParam.filterValue;
+
+      params = params.append(filterType, filterValue);
     }
 
     return this.httpClient.get(apiConfig.transaction_url, {params}).pipe(

@@ -21,7 +21,7 @@
   }
 
   .icon-arrow-down {
-    transition: .15s cubic-bezier(0.6, -0.28, 0.74, 0.05);
+    transition: .2s cubic-bezier(0.6, -0.28, 0.74, 0.05);
 
     .dropdown-active & {
       transform: rotate(-180deg);
@@ -34,7 +34,7 @@
   left: 0;
   top: 100%;
   width: calc(100% - 2px);
-  background-color: rgb(255, 255, 255);
+  background-color: white;
   border: 1px solid $c-topaz;
   border-top: 0;
   @include shadow;
@@ -51,11 +51,11 @@
   padding: 6px 12px 5px;
   font-weight: 600;
   font-size: 12px;
-  color: $c-grey-600;
-  background-color: $c-pale-grey;
+  background-color: $c-pale-grey-two;
   border: 1px solid darken($c-pale-grey-two, 10%);
   border-left: none;
   border-right: none;
+  opacity: .85;
 }
 
 .dropdown-option {

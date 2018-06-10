@@ -40,24 +40,26 @@ export class DropdownComponent implements AfterViewInit {
       dropdownOptionSelected: optionSelected
     };
 
-    this.optionSelected = this.title.nativeElement.innerHTML = optionSelected;
-    this.renderer.setStyle(this.trigger.nativeElement, 'text-transform', `${this.dropdownOptionText}`);
-
+    this.title.nativeElement.innerHTML = optionSelected;
+    this.optionSelected = optionSelected;
     this.dropdownService.dropdownOptionSelected.emit(dropdown);
-    this.hideDropdown();
+
+    if (this.showDropdown){
+      this.showDropdown = false;
+    }
   }
 
   clickedInside($event: Event){
-    $event.preventDefault();
-    $event.stopPropagation();
+    // $event.preventDefault();
+    // $event.stopPropagation();
+
+    // if (this.showDropdown){
+    //   this.showDropdown = false;
+    // }
   }
 
   @HostListener('document:click')
   clickedOutside(){
-    this.hideDropdown();
-  }
-
-  private hideDropdown() {
     if (this.showDropdown){
       this.showDropdown = false;
     }

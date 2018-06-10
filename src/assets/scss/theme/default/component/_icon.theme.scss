@@ -11,3 +11,7 @@
   width: 12px;
   height: 6px;
 }
+
+.icon-close {
+  @include square(13px);
+}

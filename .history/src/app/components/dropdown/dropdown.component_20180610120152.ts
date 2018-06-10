@@ -31,33 +31,28 @@ export class DropdownComponent implements AfterViewInit {
     this.showDropdown = !this.showDropdown;
   }
 
-  clickOption($event: Event, object: any, optionSelected: string) {
-    $event.preventDefault();
-    $event.stopPropagation();
-
+  clickOption(object: any, optionSelected: string) {
     const dropdown: Dropdown = {
       dropdownObject: object,
       dropdownOptionSelected: optionSelected
     };
 
-    this.optionSelected = this.title.nativeElement.innerHTML = optionSelected;
-    this.renderer.setStyle(this.trigger.nativeElement, 'text-transform', `${this.dropdownOptionText}`);
-
+    this.title.nativeElement.innerHTML = optionSelected;
+    this.optionSelected = optionSelected;
     this.dropdownService.dropdownOptionSelected.emit(dropdown);
-    this.hideDropdown();
   }
 
   clickedInside($event: Event){
     $event.preventDefault();
     $event.stopPropagation();
+
+    if (this.showDropdown){
+      this.showDropdown = false;
+    }
   }
 
   @HostListener('document:click')
   clickedOutside(){
-    this.hideDropdown();
-  }
-
-  private hideDropdown() {
     if (this.showDropdown){
       this.showDropdown = false;
     }

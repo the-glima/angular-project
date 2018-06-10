@@ -10,20 +10,26 @@ import {
   ApiInterceptor,
   DataService,
   TransactionService,
-  CreditCardService
- } from '@app/shared/services';
+  CreditCardService,
+  DropdownService
+} from '@app/shared/services';
 
 // Component: Header
 import { HeaderComponent } from './components/header/header.component';
+
+// Component: Filter
+import { FilterComponent } from './components/filter/filter.component';
 
 // Component: Dropdown
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 
 // Components: Transaction
-import { TransactionsComponent } from './components/transactions/transactions.component';
-import { TransactionListComponent } from './components/transactions/transaction-list/transaction-list.component';
-import { TransactionItemComponent } from './components/transactions/transaction-item/transaction-item.component';
-import { TransactionCardComponent } from './components/transactions/transaction-item/transaction-card/transaction-card.component';
+import {
+  TransactionsComponent,
+  TransactionListComponent,
+  TransactionItemComponent,
+  TransactionCardComponent
+} from './components/transactions/index';
 
 @NgModule({
   declarations: [
@@ -33,7 +39,8 @@ import { TransactionCardComponent } from './components/transactions/transaction-
     TransactionItemComponent,
     TransactionCardComponent,
     DropdownComponent,
-    HeaderComponent
+    HeaderComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +51,7 @@ import { TransactionCardComponent } from './components/transactions/transaction-
     DataService,
     TransactionService,
     CreditCardService,
+    DropdownService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ApiInterceptor,
