@@ -1,5 +1,10 @@
 <div class="filter-wrapper">
   <app-dropdown class="filter-dropdown" [dropdowbObject]="paymentFilters" [dropdownOptionText]="'capitalize'"></app-dropdown>
   <app-dropdown class="filter-dropdown" [dropdowbObject]="currencyFilters" [dropdownOptionText]="'uppercase'"></app-dropdown>
-  <button (click)="search($event)" class="filter-submit button button-tertiary">Search</button>
+  <button (click)="search($event)" [ngClass]="{'loading': isLoading}" class="filter-submit button button-tertiary">
+    <span>Search</span>
+    <svg *ngIf="isLoading" class="icon-loading" [@fadeInOutAnimation]>
+      <use xlink:href="#icon-loading" />
+    </svg>
+  </button>
 </div>

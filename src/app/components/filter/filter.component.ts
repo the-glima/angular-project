@@ -6,16 +6,19 @@ import { DropdownService, TransactionService } from '@app/shared/services';
 import { Dropdown, Filter } from '@app/shared/models';
 import { Subject } from 'rxjs/Subject';
 import { Subscription } from 'rxjs/Subscription';
+import { fadeInOutAnimation } from '@app/shared/animations';
 
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
-  styleUrls: ['./filter.component.scss']
+  styleUrls: ['./filter.component.scss'],
+  animations: [fadeInOutAnimation]
 })
 export class FilterComponent implements OnInit {
   currencyFilters = apiConfig.transaction_filters.currencyCode;
   paymentFilters = apiConfig.transaction_filters.paymentType;
   filters: Filter[] = [];
+  isLoading: boolean = false;
   private clicks = new Subject();
   private subscription: Subscription;
 
@@ -28,9 +31,10 @@ export class FilterComponent implements OnInit {
     this.clicks.pipe(debounceTime(300)).subscribe(() => {
       const filterParam: string = this.getFilterParams(this.filters);
 
-      this.transactionService.transactionsUpdate.emit(filterParam);
+      this.transactionService.update.emit(filterParam);
     });
 
+    // When a dropdown option is selected
     this.dropdownService.dropdownOptionSelected.subscribe(
       (dropdown: Dropdown) => {
         const filterItem = {
@@ -48,6 +52,11 @@ export class FilterComponent implements OnInit {
         }
       }
     );
+
+    // When transactions are updated
+    this.transactionService.updated.subscribe(
+      () => { this.isLoading = false; }
+    );
   }
 
   ngOnDestroy() {
@@ -59,6 +68,7 @@ export class FilterComponent implements OnInit {
     event.stopPropagation();
 
     this.clicks.next(event);
+    this.isLoading = true;
   }
 
   private findFilter(array: Array<any>, id: number) {

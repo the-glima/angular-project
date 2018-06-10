@@ -7,10 +7,18 @@
     <div class="transaction-header-title">Amount</div>
     <div class="transaction-header-title">Currency</div>
   </header>
-  <div *ngIf="transactions && !transactionsError" class="transaction-content">
+  <div *ngIf="transactions && !error" class="transaction-content">
     <app-transaction-item *ngFor="let transactionItem of transactions" [transaction]="transactionItem"></app-transaction-item>
   </div>
-  <div *ngIf="transactionsError" class="transaction-error-message">
+  <div *ngIf="isLoading" class="transaction-loading" [@fadeInOutAnimation]>
+    <div class="icon-wrapper">
+      <svg class="icon-loading" >
+        <use xlink:href="#icon-loading" />
+      </svg>
+    </div>
+    <p>Loading ...</p>
+  </div>
+  <div *ngIf="error" class="transaction-error-message">
     <h2>
       <span class="icon-wrapper">
         <svg class="icon-warning">

@@ -4,7 +4,10 @@
 // Theme: Default
 @import 'theme/default/default.theme';
 
-.dropdown { position: relative; }
+.dropdown {
+  position: relative;
+  z-index: zindex(firstLayer);
+}
 
 // Trigger
 .dropdown-trigger {
