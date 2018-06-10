@@ -1,0 +1,5 @@
+<div class="filter-wrapper">
+  <app-dropdown class="filter-dropdown" [dropdowbObject]="paymentFilters" [dropdownOptionText]="'capitalize'"></app-dropdown>
+  <app-dropdown class="filter-dropdown" [dropdowbObject]="currencyFilters" [dropdownOptionText]="'uppercase'"></app-dropdown>
+  <button (click)="search($event)" class="filter-submit button button-primary">Search</button>
+</div>

@@ -1,0 +1,35 @@
+// Component: Filter
+// -------------------------------------
+
+// Theme: Default
+@import 'theme/default/default.theme';
+
+.filter-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint(min-width, $container-sm) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  @include breakpoint(min-width, $break-mobile) {
+    justify-content: flex-end;
+  }
+}
+
+.filter-dropdown {
+  margin-bottom: 10px;
+
+  @include breakpoint(min-width, $container-sm) {
+    margin-right: 20px;
+    margin-bottom: 0;
+  }
+}
+
+.filter-submit {
+  @include breakpoint(max-width, $container-sm) {
+    width: 100% !important;
+  }
+}

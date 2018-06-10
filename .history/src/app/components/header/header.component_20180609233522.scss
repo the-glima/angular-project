@@ -1,0 +1,11 @@
+// Component: Header
+// -------------------------------------
+
+// Theme: Default
+@import 'theme/default/default.theme';
+
+.main-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}

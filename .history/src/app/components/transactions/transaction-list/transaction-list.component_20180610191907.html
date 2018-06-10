@@ -1,0 +1,23 @@
+<div class="transaction-table" [@fadeInOutAnimation]>
+  <header class="transaction-header">
+    <div class="transaction-header-title">Name</div>
+    <div class="transaction-header-title">Brand</div>
+    <div class="transaction-header-title">Last 4 Digits</div>
+    <div class="transaction-header-title">Transaction Type</div>
+    <div class="transaction-header-title">Amount</div>
+    <div class="transaction-header-title">Currency</div>
+  </header>
+  <div *ngIf="transactions && !transactionsError" class="transaction-content">
+    <app-transaction-item *ngFor="let transactionItem of transactions" [transaction]="transactionItem"></app-transaction-item>
+  </div>
+  <div *ngIf="transactionsError" class="transaction-error-message">
+    <h2>
+      <svg class="icon-warning">
+        <use xlink:href="#icon-warning" />
+      </svg>
+      <span>Unable to show transactions</span>
+    </h2>
+    <p>Opps, somehting went wrong!</p>
+    <p>Please, try again later.</p>
+  </div>
+</div>

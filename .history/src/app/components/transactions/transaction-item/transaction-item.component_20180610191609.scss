@@ -1,0 +1,68 @@
+// Component: Transaction Item
+// -------------------------------------
+
+// Theme: Default
+@import 'theme/default/default.theme';
+
+.transaction-row {
+  display: flex;
+  padding: 18px 14px;
+  @include card;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 20px;
+  // color: lighten($c-text-default, 20%);
+  border-bottom: 1px solid $c-grey-100;
+  transition: $transition;
+
+  @include breakpoint(max-width, $break-mobile) {
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  &:hover {
+    color: $c-text-default;
+    background-color: lighten($c-pale-grey, 1%);
+  }
+
+  &.active {
+    color: $c-text-default;
+    font-weight: 600;
+    background-color: lighten($c-pale-grey, 1%);
+    border-bottom-color: $c-grey-100;
+  }
+}
+
+// Header
+.transaction-header {
+  @include breakpoint(max-width, $break-mobile) {
+    display: block
+  }
+
+}
+
+.transaction-title {
+  padding-bottom: 14px;
+
+  &:last-child { padding-bottom: 0; }
+}
+
+// Content
+.transaction-content {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.transaction-cell {
+  text-align: right;
+  padding-bottom: 14px;
+
+  &:last-child { padding-bottom: 0; }
+
+  @include breakpoint(min-width, $break-mobile) {
+    @include table-cell-space;
+    padding: 0 4px;
+    text-align: left;
+  }
+}

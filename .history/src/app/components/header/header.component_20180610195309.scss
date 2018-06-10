@@ -1,0 +1,14 @@
+// Component: Header
+// -------------------------------------
+
+// Theme: Default
+@import 'theme/default/default.theme';
+
+.main-header {
+  display: flex;
+  margin-bottom: 20px;
+
+  @include breakpoint(min-width, $break-mobile) {
+    justify-content: flex-end;
+  }
+}

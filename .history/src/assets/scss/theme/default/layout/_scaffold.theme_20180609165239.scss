@@ -1,0 +1,19 @@
+// Theme Default: Layout - Scaffold
+// ----------------------------------------
+
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  margin: 0;
+  padding: 30px;
+  color: $c-text-default;
+  line-height: $txt-line-height-default;
+  font-size: $txt-font-size-default;
+  font-family: $font-family-default;
+  background-color: $bg-color-default;
+}

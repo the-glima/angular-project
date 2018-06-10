@@ -1,0 +1,128 @@
+// Theme Default: Helper - Mixins
+// --------------------------------------------
+
+// Size
+@mixin square($size) {
+  width: $size;
+  height: $size;
+}
+
+// Text Hidden
+@mixin text-hidden {
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+}
+
+// Border radius
+@mixin border-top-radius($radius) {
+  border-top-right-radius: $radius;
+  border-top-left-radius: $radius;
+}
+
+@mixin border-right-radius($radius) {
+  border-bottom-right-radius: $radius;
+  border-top-right-radius: $radius;
+}
+
+@mixin border-bottom-radius($radius) {
+  border-bottom-right-radius: $radius;
+  border-bottom-left-radius: $radius;
+}
+
+@mixin border-left-radius($radius) {
+  border-bottom-left-radius: $radius;
+  border-top-left-radius: $radius;
+}
+
+// Trinagle border icons
+@mixin icon-triangle-up($color, $size) {
+  border-style: solid;
+  border-color:  transparent transparent $color transparent;
+  border-width: 0 $size $size $size;
+}
+
+@mixin icon-triangle-down($color, $size) {
+  border-style: solid;
+  border-color: $color transparent transparent transparent;
+  border-width: $size $size 0 $size;
+}
+
+@mixin icon-triangle-left($color, $size) {
+  border-style: solid;
+  border-color: transparent $color transparent transparent ;
+  border-width: $size $size  $size 0;
+}
+
+@mixin icon-triangle-right($color, $size) {
+  border-style: solid;
+  border-color: transparent transparent transparent $color;
+  border-width: $size 0 $size $size;
+}
+
+// Find icon by class
+@mixin icon-find($class: 't-icon') {
+  [class^="#{$class}"],
+  [class*=" #{$class}-"] {
+    @content;
+  }
+}
+
+// Breakpoint
+@mixin breakpoint($feature, $value, $feature2: null, $value2: null) {
+  // Set global device param
+  $media: only screen;
+
+  @if $feature2 {
+    @media #{$media} and ($feature: $value) and ($feature2: $value2) {
+      @content;
+    }
+  } @else {
+    @media #{$media} and ($feature: $value) {
+      @content;
+    }
+  }
+}
+
+// User Select Vendors
+@mixin user-selection($value: none) {
+  -webkit-user-select: $value;
+  -moz-user-select: $value;
+  -ms-user-select: $value;
+  user-select: $value;
+}
+
+// Cursor CSS3
+@mixin cursor($value: none) {
+  cursor: -moz-#{$value};
+  cursor: -webkit-#{$value};
+  cursor: $value;
+}
+
+// Table custom elements
+@mixin table-cell-space() {
+  flex-grow: 1;
+  flex-basis: 5%;
+
+  &:first-child { flex-basis: 22%; }
+  &:nth-child(2) { flex-basis: 10%; }
+  &:nth-child(3) { flex-basis: 10%; }
+  &:nth-child(4) { flex-basis: 14%; }
+}
+
+// Shadow
+@mixin shadow(
+  $box-shadow: $box-shadow-default,
+  $box-shadow-color: $box-shadow-color-default,
+  $important: null) {
+  box-shadow: $box-shadow $box-shadow-color $important;
+}
+
+// Zindex - Function
+@function zindex($layer) {
+  @if not map-has-key($zindex, $layer) {
+    @warn "No layer found for `#{$layer}` in $z-layers map. Property omitted.";
+  }
+
+  @return map-get($zindex, $layer);
+}

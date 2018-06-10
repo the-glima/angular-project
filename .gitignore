@@ -45,3 +45,6 @@ Thumbs.db
 
 # Env Variables
 environment.config.ts
+
+# HTTP
+*.http
