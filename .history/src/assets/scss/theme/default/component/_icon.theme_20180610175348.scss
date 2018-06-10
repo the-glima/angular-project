@@ -1,0 +1,21 @@
+// Theme Default: Component - Icon
+// --------------------------------------------
+
+#svg-prite {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+.icon-arrow-down {
+  width: 12px;
+  height: 6px;
+}
+
+.icon-close {
+  @include square(13px);
+}
+
+.icon-warning {
+  @include square(20px);
+}

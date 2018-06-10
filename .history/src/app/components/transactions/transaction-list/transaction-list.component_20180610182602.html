@@ -1,0 +1,24 @@
+<div *ngIf="transactions" class="transactions-table">
+  <div class="transactions-table-thead">
+    <div class="transactions-table-title">Name</div>
+    <div class="transactions-table-title">Brand</div>
+    <div class="transactions-table-title">Last 4 Digits</div>
+    <div class="transactions-table-title">Transaction Type</div>
+    <div class="transactions-table-title">Amount</div>
+    <div class="transactions-table-title">Currency</div>
+  </div>
+  <div class="transactions-table-tbody">
+    <app-transaction-item *ngFor="let transactionItem of transactions" [transaction]="transactionItem" class="transactions-table-row"></app-transaction-item>
+
+    <div *ngIf="!transactions" class="transactions-error-message">
+      <h2>
+        <svg class="icon-warning">
+          <use xlink:href="#icon-warning" />
+        </svg>
+        <span>Unable to show transactions</span>
+      </h2>
+      <p>Opps, somehting went wrong!</p>
+      <p>Please, try again later.</p>
+    </div>
+</div>
+</div>
