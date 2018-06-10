@@ -1,0 +1,117 @@
+// Component: Transaction Item
+// -------------------------------------
+
+// Theme: Default
+@import 'theme/default/default.theme';
+
+.transaction-item {
+  padding: 18px 14px;
+  @include card;
+  font-size: 16px;
+  line-height: 20px;
+  transition: $transition;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+  @include breakpoint(min-width, $break-mobile) {
+    @include card($reset: true);
+    display: flex;
+    justify-content: flex-start;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 18px;
+    border-bottom: 1px solid $c-grey-100;
+  }
+}
+
+.transaction-row {
+  display: flex;
+  justify-content: space-between;
+  // padding: 18px 14px;
+  // font-size: 16px;
+  // line-height: 20px;
+  // transition: $transition;
+  // justify-content: space-between;
+  // margin-bottom: 20px;
+
+  // @include breakpoint(min-width, $break-mobile) {
+  //   justify-content: flex-start;
+  //   cursor: pointer;
+  //   font-size: 14px;
+  //   line-height: 18px;
+  //   border-bottom: 1px solid $c-grey-100;
+  // }
+
+  // &:hover {
+  //   color: $c-text-default;
+  //   background-color: lighten($c-pale-grey, 1%);
+  // }
+
+  // &.active {
+  //   color: $c-text-default;
+  //   font-weight: 600;
+  //   background-color: lighten($c-pale-grey, 1%);
+  //   border-bottom-color: $c-grey-100;
+  // }
+}
+
+// Header
+.transaction-header {
+  @include breakpoint(max-width, $break-mobile) {
+    display: block
+  }
+}
+
+.transaction-title {
+  padding-bottom: 14px;
+  color: $c-primary;
+  // font-weight: 600;
+
+  &:last-child { padding-bottom: 0; }
+}
+
+// Content
+.transaction-content {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.transaction-cell {
+  padding-bottom: 14px;
+  font-weight: 600;
+  text-align: right;
+
+  &:last-child { padding-bottom: 0; }
+
+  @include breakpoint(min-width, $break-mobile) {
+    @include table-cell-space;
+    padding: 0 4px;
+    text-align: left;
+  }
+}
+
+.transaction-card-button {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+
+  @include breakpoint(min-width, $break-mobile) {
+    display: none;
+  }
+
+  .button {
+    display: flex;
+    align-items: center;
+
+    .active {
+
+    }
+  }
+
+  .icon-arrow-down {
+    margin-left: 14px;
+    width: 12px;
+    height: 6px;
+  }
+}

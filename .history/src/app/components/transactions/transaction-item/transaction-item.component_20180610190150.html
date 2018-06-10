@@ -1,0 +1,9 @@
+<div (click)="showTransactionCard()" class="transaction-table-row" [ngClass]="{'active': toggleTransactionCard }">
+  <div class="transaction-table-cell">{{ transaction.card.holderName }}</div>
+  <div class="transaction-table-cell">{{ transaction.brandId }}</div>
+  <div class="transaction-table-cell">{{ transaction.card.lastFourDigits }}</div>
+  <div class="transaction-table-cell">{{ transaction.action }}</div>
+  <div class="transaction-table-cell">{{ transaction.amount }}</div>
+  <div class="transaction-table-cell">{{ transaction.currencyCode }}</div>
+</div>
+<app-transaction-card *ngIf="toggleTransactionCard" [transaction]="transaction" [@fadeInOutAnimation]></app-transaction-card>

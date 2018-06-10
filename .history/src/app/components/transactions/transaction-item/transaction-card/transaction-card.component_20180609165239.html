@@ -1,0 +1,23 @@
+<div class="transaction-info-col">
+  <p>
+    <span class="transaction-info-label">ID: </span>
+    <span class="transaction-info-value">{{ transaction.id }}</span>
+  </p>
+  <p>
+    <span class="transaction-info-label">Transaction code: </span>
+    <span class="transaction-info-value">{{ transaction.trackingCode }}</span></p>
+  <p>
+    <span class="transaction-info-label">Brand ID: </span>
+    <span class="transaction-info-value">{{ transaction.brandId }}</span></p>
+</div>
+<div class="info-col">
+  <p>
+    <span class="transaction-info-label">First 6 Digits: </span>
+    <span class="transaction-info-value">{{ transaction.card.firstSixDigits }}</span></p>
+  <p>
+    <span class="transaction-info-label">Expiry Month: </span>
+    <span class="transaction-info-value">{{ transaction.card.expiryMonth }}</span></p>
+  <p>
+    <span class="transaction-info-label">Expiry Year: </span>
+    <span class="transaction-info-value">{{ transaction.card.expiryYear }}</span></p>
+</div>

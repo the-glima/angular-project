@@ -1,0 +1,38 @@
+// Component: Filter
+// -------------------------------------
+
+// Theme: Default
+@import 'theme/default/default.theme';
+
+.filter-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint(min-width, $break-mobile) {
+    flex-direction: row;
+  }
+
+  @include breakpoint(min-width, $break-mobile) {
+    flex-direction: row;
+  }
+}
+
+.filter-dropdown {
+  margin-bottom: 10px;
+
+  @include breakpoint(max-width, $container-sm) {
+    width: 100% !important;
+  }
+
+  @include breakpoint(min-width, $break-mobile) {
+    margin-right: 20px;
+    margin-bottom: 0;
+  }
+}
+
+.filter-dropdown .dropdown-trigger {
+  margin-bottom: 10px;
+
+  @include breakpoint(max-width, $container-sm) {
+    width: 100% !important;
+  }

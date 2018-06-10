@@ -1,0 +1,61 @@
+// Component: Transaction List
+// -------------------------------------
+
+// Theme: Default
+@import 'theme/default/default.theme';
+
+.transaction-table {
+  @include breakpoint(min-width, $break-mobile) {
+    @include card;
+  }
+}
+
+// Header
+.transaction-header {
+  display: none;
+
+  @include breakpoint(min-width, $break-mobile) {
+    display: flex;
+    padding: 14px;
+    border-bottom: 1px solid $c-grey-100;
+  }
+}
+
+.transaction-header-title {
+  @include table-cell-space;
+  color: $c-primary;
+  font-weight: 600;
+}
+
+// Error
+.transaction-error-message {
+  padding: 40px 20px;
+  text-align: center;
+  @include card;
+
+  @include breakpoint(min-width, $break-mobile) {
+    @include card($reset: true);
+  }
+
+  h2 {
+    margin-bottom: 16px;
+    color: $c-danger;
+    display: flex;
+    justify-content: center;
+
+    @include breakpoint(min-width, $break-mobile) {
+      align-items: center;
+    }
+  }
+
+  p { font-size: 18px; }
+
+  .icon-warning {
+    margin-right: 10px;
+    color: $c-danger;
+
+    @include breakpoint(min-width, $break-mobile) {
+      margin-right: 0;
+    }
+  }
+}
