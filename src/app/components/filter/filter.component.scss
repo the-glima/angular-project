@@ -5,9 +5,11 @@
 @import 'theme/default/default.theme';
 
 .filter-wrapper {
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
+  z-index: zindex(fifthLayer);
 
   @include breakpoint(min-width, $container-sm) {
     flex-direction: row;
@@ -29,7 +31,48 @@
 }
 
 .filter-submit {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 110px;
+  justify-content: center;
+  transition: 1s;
+
   @include breakpoint(max-width, $container-sm) {
     width: 100% !important;
+  }
+
+  > span { transition: .2s cubic-bezier(0.22, 0.61, 0.36, 1); }
+
+  &.loading {
+    > span { padding-right: 20px; }
+  }
+
+  .icon-loading {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    margin-left: 10px;
+    width: 20px;
+    height: 16px;
+    color: $c-white;
+    transform: translateY(-50%);
+  }
+}
+
+.filter-submit-loading {
+  &.loading {
+    > span { padding-right: 20px; }
+  }
+
+  .loading-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    margin-left: 10px;
+    width: 20px;
+    height: 16px;
+    color: $c-white;
+    transform: translateY(-50%);
   }
 }

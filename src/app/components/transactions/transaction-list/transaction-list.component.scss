@@ -5,6 +5,8 @@
 @import 'theme/default/default.theme';
 
 .transaction-table {
+  position: relative;
+
   @include breakpoint(min-width, $break-mobile) {
     @include card;
   }
@@ -29,7 +31,11 @@
 
 // Error
 .transaction-error-message {
+  display: flex;
+  justify-content: center;
+  min-height: 240px;
   padding: 30px 20px;
+  flex-direction: column;
   text-align: center;
   @include card;
 
@@ -64,5 +70,21 @@
     @include breakpoint(min-width, $break-mobile) {
       @include square(28px);
     }
+  }
+}
+
+// Loading
+.transaction-loading {
+  transition: 0.15s ease-in-out;
+
+  .is-loading & {
+    position: absolute;
+    top: 0%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-top: 20px;
+    background: transparentize($c-white, .1);
+    z-index: zindex(firstLayer);
   }
 }

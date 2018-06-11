@@ -12,7 +12,8 @@ import { fadeInOutAnimation } from '@app/shared/animations';
 })
 export class TransactionListComponent implements OnInit {
   transactions: Transaction;
-  transactionsError: boolean = true;
+  error: boolean = false;
+  isLoading: boolean = false;
 
   constructor(
     private dataService: DataService,
@@ -22,12 +23,25 @@ export class TransactionListComponent implements OnInit {
   ngOnInit() {
     this.getTransactions(null);
 
-    // this.transactionService.transactionsUpdate.subscribe(
-    //   (filterParam: FilterParam) => {
-    //     this.transactionsError = false;
-    //     this.getTransactions(filterParam);
-    //   }
-    // );
+    // Updating Transcations
+    this.transactionService.update.subscribe(
+      (filterParam: FilterParam) => {
+        this.error = false;
+        this.isLoading = true;
+
+        setTimeout (() => {
+          this.getTransactions(filterParam);
+          this.transactionService.updated.emit(true);
+        }, 800);
+      }
+    );
+
+    // When transactions are updated
+    this.transactionService.updated.subscribe(
+      () => {
+        this.isLoading = false;
+      }
+    );
   }
 
   private getTransactions(filterParam: FilterParam) {
@@ -35,9 +49,8 @@ export class TransactionListComponent implements OnInit {
       .subscribe(
         (transactions: Transaction) => this.transactions = transactions,
         (error) => {
-          debugger
           console.log(error);
-          this.transactionsError = true;
+          this.error = true;
         }
       );
   }

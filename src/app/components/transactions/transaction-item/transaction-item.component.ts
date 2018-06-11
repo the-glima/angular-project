@@ -13,7 +13,7 @@ export class TransactionItemComponent {
   @Input() transaction: Transaction;
   toggleTransactionCard: boolean = false;
 
-  showTransactionCard(device: string) {
+  showTransactionCard() {
     this.toggleTransactionCard = !this.toggleTransactionCard;
   }
 }
