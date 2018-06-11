@@ -4,6 +4,4 @@ import { Injectable, EventEmitter } from '@angular/core';
 export class TransactionService {
   update = new EventEmitter<any>();
   updated = new EventEmitter<any>();
-
-  constructor() {}
 }

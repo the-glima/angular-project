@@ -1,4 +1,4 @@
-<div class="transaction-table" [@fadeInOutAnimation]>
+<div class="transaction-table" [ngClass]="{'is-loading': isLoading}"  [@fadeInOutAnimation]>
   <header class="transaction-header">
     <div class="transaction-header-title">Name</div>
     <div class="transaction-header-title">Brand</div>
@@ -10,14 +10,9 @@
   <div *ngIf="transactions && !error" class="transaction-content">
     <app-transaction-item *ngFor="let transactionItem of transactions" [transaction]="transactionItem"></app-transaction-item>
   </div>
-  <div *ngIf="isLoading" class="transaction-loading" [@fadeInOutAnimation]>
-    <div class="icon-wrapper">
-      <svg class="icon-loading" >
-        <use xlink:href="#icon-loading" />
-      </svg>
-    </div>
-    <p>Loading ...</p>
-  </div>
+
+  <app-loading class="transaction-loading" [load]="isLoading"></app-loading>
+
   <div *ngIf="error" class="transaction-error-message">
     <h2>
       <span class="icon-wrapper">

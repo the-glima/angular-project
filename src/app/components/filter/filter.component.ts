@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { debounceTime } from 'rxjs/operators';
 
 import { apiConfig } from '@app/app.config';
@@ -12,7 +12,8 @@ import { fadeInOutAnimation } from '@app/shared/animations';
   selector: 'app-filter',
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.scss'],
-  animations: [fadeInOutAnimation]
+  animations: [fadeInOutAnimation],
+  encapsulation: ViewEncapsulation.None
 })
 export class FilterComponent implements OnInit {
   currencyFilters = apiConfig.transaction_filters.currencyCode;

@@ -3,8 +3,6 @@
   <app-dropdown class="filter-dropdown" [dropdowbObject]="currencyFilters" [dropdownOptionText]="'uppercase'"></app-dropdown>
   <button (click)="search($event)" [ngClass]="{'loading': isLoading}" class="filter-submit button button-tertiary">
     <span>Search</span>
-    <svg *ngIf="isLoading" class="icon-loading" [@fadeInOutAnimation]>
-      <use xlink:href="#icon-loading" />
-    </svg>
+    <app-loading class="filter-submit-loading" [load]="isLoading" [text]="false"></app-loading>
   </button>
 </div>

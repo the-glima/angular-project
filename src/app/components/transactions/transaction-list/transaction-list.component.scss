@@ -29,31 +29,13 @@
   font-weight: 600;
 }
 
-// Loading
-.transaction-loading {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  z-index: zindex(secondLayer);
-  background: transparentize($c-white, .1);
-
-  .icon-loading {
-    color: $c-primary;
-    width: 64px;
-    height: 70px;
-  }
-}
-
 // Error
 .transaction-error-message {
-  min-height: 200px;
+  display: flex;
+  justify-content: center;
+  min-height: 240px;
   padding: 30px 20px;
+  flex-direction: column;
   text-align: center;
   @include card;
 
@@ -88,5 +70,21 @@
     @include breakpoint(min-width, $break-mobile) {
       @include square(28px);
     }
+  }
+}
+
+// Loading
+.transaction-loading {
+  transition: 0.15s ease-in-out;
+
+  .is-loading & {
+    position: absolute;
+    top: 0%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-top: 20px;
+    background: transparentize($c-white, .1);
+    z-index: zindex(firstLayer);
   }
 }

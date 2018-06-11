@@ -30,6 +30,7 @@ import {
   TransactionItemComponent,
   TransactionCardComponent
 } from './components/transactions/index';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import {
     TransactionCardComponent,
     DropdownComponent,
     HeaderComponent,
-    FilterComponent
+    FilterComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

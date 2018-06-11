@@ -28,16 +28,19 @@ export class TransactionListComponent implements OnInit {
       (filterParam: FilterParam) => {
         this.error = false;
         this.isLoading = true;
-        debugger
-        console.log(this.isLoading);
-        this.getTransactions(filterParam);
-        this.transactionService.updated.emit(true);
+
+        setTimeout (() => {
+          this.getTransactions(filterParam);
+          this.transactionService.updated.emit(true);
+        }, 800);
       }
     );
 
     // When transactions are updated
     this.transactionService.updated.subscribe(
-      () => { this.isLoading = false; }
+      () => {
+        this.isLoading = false;
+      }
     );
   }
 
@@ -46,7 +49,6 @@ export class TransactionListComponent implements OnInit {
       .subscribe(
         (transactions: Transaction) => this.transactions = transactions,
         (error) => {
-          debugger
           console.log(error);
           this.error = true;
         }
