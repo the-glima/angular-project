@@ -13,6 +13,7 @@
 
   @include breakpoint(min-width, $break-mobile) {
     @include card($reset: true);
+    margin-bottom: 0;
     font-size: 14px;
     line-height: 18px;
   }
@@ -33,7 +34,7 @@
       background-color: lighten($c-pale-grey, 1%);
     }
 
-    &.active {
+    .transaction-active & {
       color: $c-text-default;
       font-weight: 600;
       background-color: lighten($c-pale-grey, 1%);

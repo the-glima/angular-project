@@ -31,6 +31,7 @@ import {
   TransactionCardComponent
 } from './components/transactions/index';
 import { LoadingComponent } from './components/loading/loading.component';
+import { CreditCardBrandDirective } from './shared/directive/credit-card-brand.directive';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { LoadingComponent } from './components/loading/loading.component';
     DropdownComponent,
     HeaderComponent,
     FilterComponent,
-    LoadingComponent
+    LoadingComponent,
+    CreditCardBrandDirective
   ],
   imports: [
     BrowserModule,
