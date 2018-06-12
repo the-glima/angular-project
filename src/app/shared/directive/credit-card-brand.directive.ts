@@ -31,14 +31,18 @@ export class CreditCardBrandDirective {
 
     const cardName = this.getCardBrand(this.regex, this.number);
 
-    useElem.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', `#icon-credit-card-${cardName}`);
-    svgElem.style.height = this.iconHeight;
-    svgElem.style.width = this.iconWidth;
+    this.renderer.addClass(wrapperElem, 'credit-card--brand')
 
-    textElem.innerText = cardName;
-    svgElem.appendChild(useElem);
-    wrapperElem.appendChild(svgElem);
-    wrapperElem.appendChild(textElem);
+    // SVG attributes and base styling
+    useElem.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', `#icon-cc-${cardName}`);
+
+    this.renderer.setAttribute(svgElem, 'width', this.iconWidth);
+    this.renderer.setAttribute(svgElem, 'height', this.iconHeight);
+
+    this.renderer.setProperty(textElem, 'innerText', cardName);
+    this.renderer.appendChild(svgElem, useElem);
+    this.renderer.appendChild(wrapperElem, svgElem);
+    this.renderer.appendChild(wrapperElem, textElem);
 
     this.renderer.appendChild(this.el.nativeElement, wrapperElem);
   }

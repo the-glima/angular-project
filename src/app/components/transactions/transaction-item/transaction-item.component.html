@@ -10,7 +10,9 @@
     </header>
     <div class="transaction-content">
       <div class="transaction-cell">{{ transaction.card.holderName }}</div>
-      <div class="transaction-cell" appCreditCardBrand [creditCardNumber]="transaction.card.firstSixDigits" [creditCardIconWidth]="32" [creditCardIconHeight]="20"></div>
+      <div class="transaction-cell">
+        <app-credit-card-brand [creditCardNumber]="transaction.card.firstSixDigits"></app-credit-card-brand>
+      </div>
       <div class="transaction-cell">{{ transaction.card.lastFourDigits }}</div>
       <div class="transaction-cell">{{ transaction.action }}</div>
       <div class="transaction-cell">{{ transaction.amount }}</div>

@@ -30,8 +30,10 @@ import {
   TransactionItemComponent,
   TransactionCardComponent
 } from './components/transactions/index';
+
+// Components: Others
 import { LoadingComponent } from './components/loading/loading.component';
-import { CreditCardBrandDirective } from './shared/directive/credit-card-brand.directive';
+import { CreditCardBrandComponent } from './components/credit-card-brand/credit-card-brand.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,7 @@ import { CreditCardBrandDirective } from './shared/directive/credit-card-brand.d
     HeaderComponent,
     FilterComponent,
     LoadingComponent,
-    CreditCardBrandDirective
+    CreditCardBrandComponent
   ],
   imports: [
     BrowserModule,
