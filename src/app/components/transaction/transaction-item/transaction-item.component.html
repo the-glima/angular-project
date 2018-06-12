@@ -1,5 +1,5 @@
-<div (click)="showTransactionCard()" class="transaction-item" [ngClass]="{'transaction-active': toggleTransactionCard }">
-  <div class="transaction-row">
+<div class="transaction-item" [ngClass]="{'transaction-active': toggleTransactionCard }">
+  <div class="transaction-row" (click)="showCardInfo()">
     <header class="transaction-header">
       <div class="transaction-title">Name</div>
       <div class="transaction-title">Brand</div>
@@ -10,19 +10,21 @@
     </header>
     <div class="transaction-content">
       <div class="transaction-cell">{{ transaction.card.holderName }}</div>
-      <div class="transaction-cell">{{ transaction.brandId }}</div>
+      <div class="transaction-cell">
+        <app-credit-card-brand class="transaction-credit-card" [creditCardNumber]="transaction.card.firstSixDigits"></app-credit-card-brand>
+      </div>
       <div class="transaction-cell">{{ transaction.card.lastFourDigits }}</div>
       <div class="transaction-cell">{{ transaction.action }}</div>
-      <div class="transaction-cell">{{ transaction.amount }}</div>
+      <div class="transaction-cell">{{ transaction.amount | currency: transaction.currencyCode }}</div>
       <div class="transaction-cell">{{ transaction.currencyCode }}</div>
     </div>
   </div>
 
   <div class="transaction-card-button">
-    <button class="button button-primary button-sm">
+    <button class="button button-primary button-sm" (click)="showCardInfo()">
       <span>View Card Info</span>
     </button>
   </div>
 
-  <app-transaction-card *ngIf="toggleTransactionCard" [transaction]="transaction" [@fadeInOutAnimation]></app-transaction-card>
+  <app-transaction-card *ngIf="cardInfo" [transaction]="transaction" [@fadeInOutAnimation]></app-transaction-card>
 </div>

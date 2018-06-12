@@ -7,22 +7,18 @@ import { Dropdown } from '@app/shared/models/dropdown.model';
   templateUrl: './dropdown.component.html',
   styleUrls: ['./dropdown.component.scss']
 })
-export class DropdownComponent implements AfterViewInit {
+export class DropdownComponent {
   @Input() dropdowbObject: any;
   @Input() dropdownOptionText: string;
   @ViewChild('title') title: ElementRef;
   @ViewChild('trigger') trigger: ElementRef;
   showDropdown: boolean = false;
-  defaultLabel: string;
   optionSelected: string;
 
   constructor(
     private dropdownService: DropdownService,
     private renderer: Renderer2
   ) {}
-
-  ngAfterViewInit() {
-  }
 
   toggleDropdown() {
     this.showDropdown = !this.showDropdown;
@@ -43,7 +39,7 @@ export class DropdownComponent implements AfterViewInit {
       dropdownOptionSelected: optionSelected
     };
 
-    this.dropdownService.dropdownOptionSelected.emit(dropdown);
+    this.dropdownService.optionSelected.emit(dropdown);
     this.hideDropdown();
   }
 
