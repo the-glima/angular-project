@@ -4,9 +4,11 @@ import { Directive, ElementRef, Renderer2, Input } from '@angular/core';
   selector: '[appCreditCardBrand]'
 })
 export class CreditCardBrandDirective {
-  @Input('creditCardNumber') cardNumber: string;
+  @Input('creditCardNumber') number: string;
+  @Input('creditCardIconWidth') iconWidth: string;
+  @Input('creditCardIconHeight') iconHeight: string;
 
-  cardRegex: any = {
+  regex: any = {
     amex: /^3[47]/,
     dinnersClub: /^3(?:0[0-5]|[68][0-9])[0-9]/,
     discover: /^6(?:011|[45][0-9])/,
@@ -23,15 +25,17 @@ export class CreditCardBrandDirective {
 
   ngOnInit() {
     const wrapperElem = this.renderer.createElement('div');
-    const svgElem = this.renderer.createElement('svg');
-    const useElem = this.renderer.createElement('use');
+    const svgElem = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    const useElem = document.createElementNS('http://www.w3.org/2000/svg', 'use');
     const textElem = this.renderer.createElement('span');
 
-    const cardName = this.getCardBrand(this.cardRegex, this.cardNumber);
+    const cardName = this.getCardBrand(this.regex, this.number);
 
-    useElem.setAttribute('use', 'xlink:href', `#icon-credit-card-${cardName}`, 'svg');
+    useElem.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', `#icon-credit-card-${cardName}`);
+    svgElem.style.height = this.iconHeight;
+    svgElem.style.width = this.iconWidth;
+
     textElem.innerText = cardName;
-
     svgElem.appendChild(useElem);
     wrapperElem.appendChild(svgElem);
     wrapperElem.appendChild(textElem);
