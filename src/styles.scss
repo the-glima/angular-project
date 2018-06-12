@@ -1,14 +1,4 @@
 // Styles
 // -------------------------------------
 
-// Themes
-// There're crreuntly two themes available: Default and Dark Theme.
-// To create a new theme see how src/assets/scss/theme/ are structured and create the same files with your styles.
-// To apply a new theme simply import it here.
-// IMPORTANT: Default Theme contains the base for all styles so you should always import it here as the last thing on this file.
-
-// Theme: Dark
-// @import 'theme/dark/dark.theme';
-
-// Theme: Default
-@import 'theme/default/default.theme';
+@import 'theme/import.theme';

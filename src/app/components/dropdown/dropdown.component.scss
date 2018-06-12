@@ -1,8 +1,7 @@
 // Component: Dropdown
 // -------------------------------------
 
-// Theme: Default
-@import 'theme/default/default.theme';
+@import 'theme/import.theme';
 
 .dropdown {
   position: relative;
@@ -19,13 +18,13 @@
   text-align: left;
   min-width: 166px;
 
-  @include breakpoint(max-width, $container-sm) {
+  @include breakpoint(max-width, bp-media('sm')) {
     width: 100%;
   }
 
   // Open
   .dropdown-active & {
-    border-color: $c-topaz;
+    border-color: theme-color('accent', 'base');
     border-bottom: none;
     @include border-bottom-radius(0);
   }
@@ -45,11 +44,11 @@
 // List
 .dropdown-list {
   background-color: rgb(255, 255, 255);
-  border: 1px solid $c-topaz;
+  border: 1px solid theme-color('accent', 'base');
   border-top: 0;
   @include shadow;
 
-  @include breakpoint(min-width, $container-sm) {
+  @include breakpoint(min-width, bp-media('sm')) {
     position: absolute;
     left: 0;
     top: 100%;
@@ -69,9 +68,9 @@
   padding: 6px 12px 5px;
   font-weight: 600;
   font-size: 12px;
-  color: $c-grey-600;
-  background-color: $c-pale-grey;
-  border: 1px solid darken($c-pale-grey-two, 10%);
+  color: theme-color('contrast', '600');
+  background-color: theme-color('grey', 'light');
+  border: 1px solid theme-color('grey', 'dark');
   border-left: none;
   border-right: none;
 }
@@ -80,14 +79,14 @@
   @include button-base;
   display: block;
   width: 100%;
-  color: transparentize($c-primary, .2);
+  color: transparentize(theme-color('primary', 'base'), .2);
   text-align: left;
 
   &.uppercase { text-transform: uppercase; }
   &.capitalize { text-transform: capitalize; }
 
   &:hover {
-    color: $c-primary;
-    background-color: $c-pale-grey-two;
+    color: theme-color('primary', 'base');
+    background-color: theme-color('grey', 'base');
   }
 }

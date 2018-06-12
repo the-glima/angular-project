@@ -1,8 +1,7 @@
 // Component: Transaction Item
 // -------------------------------------
 
-// Theme: Default
-@import 'theme/default/default.theme';
+@import 'theme/import.theme';
 
 .transaction-item {
   @include card;
@@ -11,7 +10,7 @@
   line-height: 20px;
   transition: $transition;
 
-  @include breakpoint(min-width, $break-mobile) {
+  @include breakpoint(min-width, bp-media('mobile')) {
     @include card($reset: true);
     margin-bottom: 0;
     font-size: 14px;
@@ -24,35 +23,35 @@
   justify-content: space-between;
   padding: 18px 14px;
 
-  @include breakpoint(min-width, $break-mobile) {
+  @include breakpoint(min-width, bp-media('mobile')) {
     display: block;
     cursor: pointer;
-    border-bottom: 1px solid $c-grey-100;
+    border-bottom: 1px solid theme-color('contrast', '100');
 
     &:hover {
-      color: $c-text-default;
-      background-color: lighten($c-pale-grey, 1%);
+      color: theme-color('text', 'base');
+      background-color: theme-color('grey', 'light');
     }
 
     .transaction-active & {
-      color: $c-text-default;
+      color: theme-color('text', 'base');
       font-weight: 600;
-      background-color: lighten($c-pale-grey, 1%);
-      border-bottom-color: $c-grey-100;
+      background-color: theme-color('grey', 'light');
+      border-bottom-color: theme-color('contrast', '100');
     }
   }
 }
 
 // Header
 .transaction-header {
-  @include breakpoint(min-width, $break-mobile) {
+  @include breakpoint(min-width, bp-media('mobile')) {
     display: none
   }
 }
 
 .transaction-title {
   padding-bottom: 14px;
-  color: $c-primary;
+  color: theme-color('primary', 'base');
 
   &:last-child { padding-bottom: 0; }
 }
@@ -62,7 +61,7 @@
   display: flex;
   flex-direction: column;
 
-  @include breakpoint(min-width, $break-mobile) {
+  @include breakpoint(min-width, bp-media('mobile')) {
     flex-direction: row;
   }
 }
@@ -74,7 +73,7 @@
 
   &:last-child { padding-bottom: 0; }
 
-  @include breakpoint(min-width, $break-mobile) {
+  @include breakpoint(min-width, bp-media('mobile')) {
     @include table-cell-space;
     padding: 0 4px;
     text-align: left;
@@ -85,7 +84,7 @@
   display: flex;
   justify-content: flex-end;
 
-  @include breakpoint(min-width, $break-mobile) {
+  @include breakpoint(min-width, bp-media('mobile')) {
     justify-content: inherit;
   }
 }
@@ -95,7 +94,7 @@
   justify-content: center;
   padding-bottom: 10px;
 
-  @include breakpoint(min-width, $break-mobile) {
+  @include breakpoint(min-width, bp-media('mobile')) {
     display: none;
   }
 

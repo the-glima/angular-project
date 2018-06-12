@@ -1,22 +1,21 @@
 // Component: Transaction Card
 // -------------------------------------
 
-// Theme: Default
-@import 'theme/default/default.theme';
+@import 'theme/import.theme';
 
 .transaction-info {
   display: flex;
   padding: 30px;
   flex-direction: column;
-  background-color: darken($c-pale-grey, 1%);
+  background-color: theme-color('grey', 'light');
 
-  @include breakpoint(min-width, $container-lg) {
+  @include breakpoint(min-width, bp-media('lg')) {
     flex-direction: row;
   }
 }
 
 .transaction-info-col {
-  @include breakpoint(min-width, $break-mobile) {
+  @include breakpoint(min-width, bp-media('mobile')) {
     flex-grow: 1;
     padding-left: 4%;
 
@@ -26,7 +25,7 @@
   p {
     &:last-child { margin-bottom: 0; }
 
-    @include breakpoint(min-width, $break-mobile) {
+    @include breakpoint(min-width, bp-media('mobile')) {
       display: flex;
       flex-grow: 1;
       margin-bottom: 20px;
@@ -38,7 +37,7 @@
   + .transaction-info-col {
     margin-top: 10px;
 
-    @include breakpoint(min-width, $break-mobile) {
+    @include breakpoint(min-width, bp-media('mobile')) {
       margin-top: 0;
     }
   }
@@ -46,7 +45,7 @@
 
 .transaction-info-label {
   flex-basis: 28%;
-  color: $c-primary;
+  color: theme-color('primary', 'base');
 }
 
 .transaction-info-value {

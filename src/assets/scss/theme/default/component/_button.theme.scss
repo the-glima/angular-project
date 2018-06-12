@@ -7,9 +7,9 @@
   $bg-color: transparent,
   $bg-color-hover: null,
   $bg-color-active: $bg-color-hover,
-  $c-text: $c-text-default,
-  $c-text-hover: $c-text-default,
-  $c-text-active: $c-text-default,
+  $c-text: theme-color('text', 'base'),
+  $c-text-hover: $c-text,
+  $c-text-active: $c-text-hover,
   $border-color: transparent,
   $border-color-hover: null,
   $border-color-active: null,
@@ -108,14 +108,14 @@
   position: relative;
   display: inline-block;
   padding: 12px 20px;
-  font-size: $txt-font-size-default;
-  line-height: $txt-line-height-default;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
   font-weight: 600;
   cursor: pointer;
   text-align: center;
   border-radius: $border-radius;
   transition: $transition;
-  @include user-selection();
+  @include user-select();
 }
 
 @mixin button-sm {
@@ -125,39 +125,39 @@
 // Button Types
 @mixin button-primary {
   @include button-states(
-    $bg-color: $c-white,
-    $bg-color-hover: $c-primary,
-    $c-text: $c-primary,
-    $c-text-hover: $c-white,
-    $border-color: $c-primary
+    $bg-color: theme-color('white', 'base'),
+    $bg-color-hover: theme-color('primary', 'base'),
+    $c-text: theme-color('primary', 'base'),
+    $c-text-hover: theme-color('white', 'base'),
+    $border-color: theme-color('primary', 'base')
   );
 }
 
 @mixin button-secondary {
   @include button-states(
-    $bg-color: $c-primary,
-    $c-text: $c-white,
-    $c-text-hover: $c-white,
-    $border-color: $c-primary
+    $bg-color: theme-color('primary', 'base'),
+    $c-text: theme-color('white', 'base'),
+    $c-text-hover: theme-color('white', 'base'),
+    $border-color: theme-color('primary', 'base')
   );
 }
 
 @mixin button-tertiary {
   @include button-states(
-    $bg-color: $c-success,
-    $c-text: $c-white,
-    $c-text-hover: $c-white,
-    $border-color: $c-success
+    $bg-color: theme-color('success', 'base'),
+    $c-text: theme-color('white', 'base'),
+    $c-text-hover: theme-color('white', 'base'),
+    $border-color: theme-color('success', 'base')
   );
 }
 
 @mixin button-white {
   @include button-states(
-    $bg-color: $c-white,
-    $bg-color-hover: $c-pale-grey-two,
-    $c-text: $c-primary,
-    $c-text-hover: $c-primary,
-    $border-color: transparentize($c-primary, .5)
+    $bg-color: theme-color('white', 'base'),
+    $bg-color-hover: theme-color('grey', 'base'),
+    $c-text: theme-color('primary', 'base'),
+    $c-text-hover: theme-color('primary', 'base'),
+    $border-color: transparentize(theme-color('primary', 'base'), .5)
   );
 }
 

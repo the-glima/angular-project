@@ -1,8 +1,7 @@
 // Component: Filter
 // -------------------------------------
 
-// Theme: Default
-@import 'theme/default/default.theme';
+@import 'theme/import.theme';
 
 .filter-wrapper {
   position: relative;
@@ -11,12 +10,12 @@
   flex-direction: column;
   z-index: zindex(fifthLayer);
 
-  @include breakpoint(min-width, $container-sm) {
+  @include breakpoint(min-width, bp-media('sm')) {
     flex-direction: row;
     justify-content: space-between;
   }
 
-  @include breakpoint(min-width, $break-mobile) {
+  @include breakpoint(min-width, bp-media('mobile')) {
     justify-content: flex-end;
   }
 }
@@ -24,7 +23,7 @@
 .filter-dropdown {
   margin-bottom: 10px;
 
-  @include breakpoint(min-width, $container-sm) {
+  @include breakpoint(min-width, bp-media('sm')) {
     margin-right: 20px;
     margin-bottom: 0;
   }
@@ -38,7 +37,7 @@
   justify-content: center;
   transition: 1s;
 
-  @include breakpoint(max-width, $container-sm) {
+  @include breakpoint(max-width, bp-media('sm')) {
     width: 100% !important;
   }
 
@@ -55,7 +54,7 @@
     margin-left: 10px;
     width: 20px;
     height: 16px;
-    color: $c-white;
+    color: theme-color('white', 'base');
     transform: translateY(-50%);
   }
 }
@@ -72,7 +71,7 @@
     margin-left: 10px;
     width: 20px;
     height: 16px;
-    color: $c-white;
+    color: theme-color('white', 'base');
     transform: translateY(-50%);
   }
 }
