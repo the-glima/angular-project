@@ -28,13 +28,4 @@ fdescribe('CreditCardBrandComponent', () => {
     console.log(component.cardName);
     expect(component).toBeTruthy();
   });
-
-  it('should show VISA card name', () => {
-    component.cardName = 'visa';
-    fixture.detectChanges();
-    console.log(deCardName);
-
-
-    expect(deCardName.properties.innerText).toEqual('visa');
-  });
 });

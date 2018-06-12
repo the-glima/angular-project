@@ -1,0 +1,21 @@
+// Theme
+// -------------------------------------
+
+@charset "UTF-8";
+
+// There're currently two themes available: Default and Dark Theme.
+// To create a new theme see how `src/assets/scss/theme/` are structured and create the same files with your styles.
+
+// Required: you need to import this file on each component to be able to access all global styling/mixins/variables/functions... E.g:
+// @import 'theme/import.theme';
+
+// Import your new theme here:
+// ---------------------------
+// Dark Theme
+// @import "dark/import.theme";
+// ----------------------------
+
+// IMPORTANT: Default Theme contains the base for all styles so you should always import it here as the last thing on this file.
+
+// Default Theme
+@import "default/import.theme";
