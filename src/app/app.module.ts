@@ -1,18 +1,65 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-
 
 import { AppComponent } from './app.component';
 
+// Services
+import {
+  ApiInterceptor,
+  TransactionService,
+  DropdownService
+} from '@app/shared/services';
+
+// Component: Header
+import { HeaderComponent } from './components/header/header.component';
+
+// Component: Filter
+import { FilterComponent } from './components/filter/filter.component';
+
+// Component: Dropdown
+import { DropdownComponent } from './components/dropdown/dropdown.component';
+
+// Components: Transaction
+import {
+  TransactionsComponent,
+  TransactionListComponent,
+  TransactionItemComponent,
+  TransactionCardComponent
+} from './components/transaction/index';
+
+// Components: Others
+import { LoadingComponent } from './components/loading/loading.component';
+import { CreditCardBrandComponent } from './components/credit-card-brand/credit-card-brand.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TransactionsComponent,
+    TransactionListComponent,
+    TransactionItemComponent,
+    TransactionCardComponent,
+    DropdownComponent,
+    HeaderComponent,
+    FilterComponent,
+    LoadingComponent,
+    CreditCardBrandComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    TransactionService,
+    DropdownService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

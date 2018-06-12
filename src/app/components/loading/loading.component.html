@@ -1,0 +1,8 @@
+<div *ngIf="load" class="loading-wrapper">
+  <div class="loading-content">
+    <svg *ngIf="icon" class="loading-icon" >
+      <use xlink:href="#icon-loading" />
+    </svg>
+    <p *ngIf="text" class="loading-text">Loading ...</p>
+  </div>
+</div>

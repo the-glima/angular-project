@@ -42,3 +42,12 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Env Variables
+environment.config.ts
+
+# HTTP
+*.http
+
+# History Files
+.history/

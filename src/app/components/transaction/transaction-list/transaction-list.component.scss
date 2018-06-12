@@ -1,0 +1,89 @@
+// Component: Transaction List
+// -------------------------------------
+
+@import 'theme/import.theme';
+
+.transaction-table {
+  position: relative;
+
+  @include breakpoint(min-width, bp-media('mobile')) {
+    @include card;
+  }
+}
+
+// Header
+.transaction-header {
+  display: none;
+
+  @include breakpoint(min-width, bp-media('mobile')) {
+    display: flex;
+    padding: 14px;
+    border-bottom: 1px solid theme-color('contrast', '100');
+  }
+}
+
+.transaction-header-title {
+  @include table-cell-space;
+  color: theme-color('primary', 'base');
+  font-weight: 600;
+}
+
+// Error
+.transaction-error-message {
+  display: flex;
+  justify-content: center;
+  min-height: 240px;
+  padding: 30px 20px;
+  flex-direction: column;
+  text-align: center;
+  @include card;
+
+  @include breakpoint(min-width, bp-media('mobile')) {
+    @include card($reset: true);
+  }
+
+  h2 {
+    margin-bottom: 16px;
+    color: theme-color('danger', 'base');
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    @include breakpoint(min-width, bp-media('mobile')) {
+      flex-direction: row;
+    }
+  }
+
+  p { font-size: 18px; }
+
+  .icon-wrapper {
+    @include breakpoint(min-width, bp-media('mobile')) {
+      margin-right: 10px;
+    }
+  }
+
+  .icon-warning {
+    color: theme-color('danger', 'base');
+    @include square(48px);
+
+    @include breakpoint(min-width, bp-media('mobile')) {
+      @include square(28px);
+    }
+  }
+}
+
+// Loading
+.transaction-loading {
+  transition: 0.15s ease-in-out;
+
+  .is-loading & {
+    position: absolute;
+    top: 0%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-top: 20px;
+    background: transparentize(theme-color('white', 'base'), .1);
+    z-index: zindex(firstLayer);
+  }
+}

@@ -1,0 +1,54 @@
+// Component: Transaction Card
+// -------------------------------------
+
+@import 'theme/import.theme';
+
+.transaction-info {
+  display: flex;
+  padding: 30px;
+  flex-direction: column;
+  background-color: theme-color('grey', 'light');
+
+  @include breakpoint(min-width, bp-media('lg')) {
+    flex-direction: row;
+  }
+}
+
+.transaction-info-col {
+  @include breakpoint(min-width, bp-media('mobile')) {
+    flex-grow: 1;
+    padding-left: 4%;
+
+    &:first-child { flex-grow: .2; }
+  }
+
+  p {
+    &:last-child { margin-bottom: 0; }
+
+    @include breakpoint(min-width, bp-media('mobile')) {
+      display: flex;
+      flex-grow: 1;
+      margin-bottom: 20px;
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+
+  + .transaction-info-col {
+    margin-top: 10px;
+
+    @include breakpoint(min-width, bp-media('mobile')) {
+      margin-top: 0;
+    }
+  }
+}
+
+.transaction-info-label {
+  flex-basis: 28%;
+  color: theme-color('primary', 'base');
+}
+
+.transaction-info-value {
+  padding-left: 3px;
+  font-weight: 600;
+}
