@@ -11,9 +11,9 @@ import { fadeInOutAnimation } from '@app/shared/animations';
 })
 export class TransactionItemComponent {
   @Input() transaction: Transaction;
-  toggleTransactionCard: boolean = false;
+  cardInfo: boolean = false;
 
-  showTransactionCard() {
-    this.toggleTransactionCard = !this.toggleTransactionCard;
+  showCardInfo() {
+    this.cardInfo = !this.cardInfo;
   }
 }

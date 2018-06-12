@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, OnDestroy } from '@angular/core';
 import { debounceTime } from 'rxjs/operators';
 
 import { apiConfig } from '@app/app.config';
@@ -15,28 +15,43 @@ import { fadeInOutAnimation } from '@app/shared/animations';
   animations: [fadeInOutAnimation],
   encapsulation: ViewEncapsulation.None
 })
-export class FilterComponent implements OnInit {
+export class FilterComponent implements OnInit, OnDestroy {
   currencyFilters = apiConfig.transaction_filters.currencyCode;
   paymentFilters = apiConfig.transaction_filters.paymentType;
   filters: Filter[] = [];
   isLoading: boolean = false;
   private clicks = new Subject();
-  private subscription: Subscription;
+  private transactionSubscription: Subscription;
+  private dropdownSubscription: Subscription;
+  private searchSubscription: Subscription;
 
   constructor(
     private dropdownService: DropdownService,
-    private transactionService: TransactionService
+    private TransactionService: TransactionService
   ) {}
 
   ngOnInit() {
-    this.clicks.pipe(debounceTime(300)).subscribe(() => {
-      const filterParam: string = this.getFilterParams(this.filters);
+    this.searchTransactions();
+    this.watchDropdown();
+    this.updateTransactions();
+  }
 
-      this.transactionService.update.emit(filterParam);
-    });
+  ngOnDestroy() {
+    this.transactionSubscription.unsubscribe();
+    this.dropdownSubscription.unsubscribe();
+    this.searchSubscription.unsubscribe();
+  }
 
-    // When a dropdown option is selected
-    this.dropdownService.dropdownOptionSelected.subscribe(
+  search(event: Event) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    this.clicks.next(event);
+    this.isLoading = true;
+  }
+
+  private watchDropdown() {
+    this.dropdownSubscription = this.dropdownService.optionSelected.subscribe(
       (dropdown: Dropdown) => {
         const filterItem = {
           filterId: dropdown.dropdownId,
@@ -53,23 +68,20 @@ export class FilterComponent implements OnInit {
         }
       }
     );
+  }
 
-    // When transactions are updated
-    this.transactionService.updated.subscribe(
-      () => { this.isLoading = false; }
+  private updateTransactions() {
+    this.transactionSubscription = this.TransactionService.updatedTransactions.subscribe(
+      () => this.isLoading = false
     );
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
+  private searchTransactions(){
+    this.searchSubscription = this.clicks.pipe(debounceTime(300)).subscribe(() => {
+      const filterParam: string = this.getFilterParams(this.filters);
 
-  search(event: Event) {
-    event.preventDefault();
-    event.stopPropagation();
-
-    this.clicks.next(event);
-    this.isLoading = true;
+      this.TransactionService.reloadTransactions.next(filterParam);
+    });
   }
 
   private findFilter(array: Array<any>, id: number) {

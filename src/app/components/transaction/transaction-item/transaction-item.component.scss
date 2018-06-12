@@ -81,6 +81,15 @@
   }
 }
 
+.transaction-credit-card {
+  display: flex;
+  justify-content: flex-end;
+
+  @include breakpoint(min-width, $break-mobile) {
+    justify-content: inherit;
+  }
+}
+
 .transaction-card-button {
   display: flex;
   justify-content: center;

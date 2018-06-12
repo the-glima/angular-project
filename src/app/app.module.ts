@@ -8,9 +8,7 @@ import { AppComponent } from './app.component';
 // Services
 import {
   ApiInterceptor,
-  DataService,
   TransactionService,
-  CreditCardService,
   DropdownService
 } from '@app/shared/services';
 
@@ -29,7 +27,7 @@ import {
   TransactionListComponent,
   TransactionItemComponent,
   TransactionCardComponent
-} from './components/transactions/index';
+} from './components/transaction/index';
 
 // Components: Others
 import { LoadingComponent } from './components/loading/loading.component';
@@ -54,9 +52,7 @@ import { CreditCardBrandComponent } from './components/credit-card-brand/credit-
     HttpClientModule,
   ],
   providers: [
-    DataService,
     TransactionService,
-    CreditCardService,
     DropdownService,
     {
       provide: HTTP_INTERCEPTORS,
