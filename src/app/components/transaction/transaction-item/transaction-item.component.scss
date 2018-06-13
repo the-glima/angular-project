@@ -43,17 +43,10 @@
 }
 
 // Header
-.transaction-header {
+.transaction-header-item {
   @include breakpoint(min-width, bp-media('mobile')) {
     display: none
   }
-}
-
-.transaction-title {
-  padding-bottom: 14px;
-  color: theme-color('primary', 'base');
-
-  &:last-child { padding-bottom: 0; }
 }
 
 // Content

@@ -13,7 +13,8 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class TransactionListComponent implements OnInit, OnDestroy {
   transactions: Transaction;
-  error: boolean = false;
+  showError: boolean = false;
+  errorMessage: string;
   isLoading: boolean = false;
   private reloadSubscritpion: Subscription;
   private updateSubscritpion: Subscription;
@@ -35,14 +36,17 @@ export class TransactionListComponent implements OnInit, OnDestroy {
     this.TransactionService.getTranscations(filterParam)
       .subscribe(
         (transactions: Transaction) => this.transactions = transactions,
-        (error) => this.error = true
+        (error) => {
+          this.showError = true;
+          this.errorMessage = error['error']['message']
+        }
       );
   }
 
   private watchTransactions() {
     this.reloadSubscritpion = this.TransactionService.reloadTransactions.subscribe(
       (filterParam: FilterParam) => {
-        this.error = false;
+        this.showError = false;
         this.isLoading = true;
 
         setTimeout (() => {

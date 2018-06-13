@@ -39,7 +39,7 @@ export class DropdownComponent {
       dropdownOptionSelected: optionSelected
     };
 
-    this.dropdownService.optionSelected.emit(dropdown);
+    this.dropdownService.optionSelected.next(dropdown);
     this.hideDropdown();
   }
 

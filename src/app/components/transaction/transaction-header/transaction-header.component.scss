@@ -1,0 +1,28 @@
+// Component: Transaction Header
+// -------------------------------------
+
+@import 'theme/import.theme';
+
+.transaction-header {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+
+  @include breakpoint(min-width, bp-media('mobile')) {
+    flex-direction: row;
+    width: 100%;
+  }
+}
+
+.transaction-header-title {
+  @include table-cell-space;
+  padding-bottom: 14px;
+  font-weight: 600;
+  color: theme-color('primary', 'base');
+
+  &:last-child { padding-bottom: 0; }
+
+  @include breakpoint(min-width,bp-media('mobile')) {
+   padding-bottom: 0;
+  }
+}
