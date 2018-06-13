@@ -6,5 +6,5 @@
 export const environment = {
   production: false,
   apiUsername: null,
-  apiPassword: null'
+  apiPassword: null
 };
