@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 
 import { Transaction } from '@app/shared/models';
 import { fadeInOutAnimation } from '@app/shared/animations';

@@ -5,33 +5,28 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
-// Services
-import {
-  ApiInterceptor,
-  TransactionService,
-  DropdownService
-} from '@app/shared/services';
-
-// Component: Header
-import { HeaderComponent } from './components/header/header.component';
-
-// Component: Filter
-import { FilterComponent } from './components/filter/filter.component';
-
-// Component: Dropdown
+// Component: Shared
+import { CreditCardBrandComponent } from './components/credit-card-brand/credit-card-brand.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FilterComponent } from './components/filter/filter.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 // Components: Transaction
 import {
   TransactionsComponent,
   TransactionListComponent,
   TransactionItemComponent,
+  TransactionHeaderComponent,
   TransactionCardComponent
 } from './components/transaction/index';
 
-// Components: Others
-import { LoadingComponent } from './components/loading/loading.component';
-import { CreditCardBrandComponent } from './components/credit-card-brand/credit-card-brand.component';
+// Services
+import {
+  ApiInterceptor,
+  TransactionService,
+  DropdownService
+} from '@app/shared/services';
 
 @NgModule({
   declarations: [
@@ -44,7 +39,8 @@ import { CreditCardBrandComponent } from './components/credit-card-brand/credit-
     HeaderComponent,
     FilterComponent,
     LoadingComponent,
-    CreditCardBrandComponent
+    CreditCardBrandComponent,
+    TransactionHeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -62,4 +58,4 @@ import { CreditCardBrandComponent } from './components/credit-card-brand/credit-
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

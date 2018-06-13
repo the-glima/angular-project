@@ -1,13 +1,7 @@
 <div class="transaction-item" [ngClass]="{'transaction-active': toggleTransactionCard }">
   <div class="transaction-row" (click)="showCardInfo()">
-    <header class="transaction-header">
-      <div class="transaction-title">Name</div>
-      <div class="transaction-title">Brand</div>
-      <div class="transaction-title">Last 4 Digits</div>
-      <div class="transaction-title">Transaction Type</div>
-      <div class="transaction-title">Amount</div>
-      <div class="transaction-title">Currency</div>
-    </header>
+    <app-transaction-header class="transaction-header-item"></app-transaction-header>
+
     <div class="transaction-content">
       <div class="transaction-cell">{{ transaction.card.holderName }}</div>
       <div class="transaction-cell">

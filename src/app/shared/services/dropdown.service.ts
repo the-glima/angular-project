@@ -1,8 +1,7 @@
-import { Injectable, EventEmitter } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class DropdownService {
-  optionSelected = new EventEmitter<any>();
-
-  constructor() { }
+  optionSelected = new Subject<any>();
 }

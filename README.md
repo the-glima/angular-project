@@ -1,5 +1,52 @@
-# Payvision - Rendering Transactions
+# Rendering Transactions
+An Angular project to search users via the Github Search API.
 
+# Stack
+
+- Angular 5.2.0
+- SCSS
+- Layout: this project is based on Flexible Box Layout ([see the support](https://caniuse.com/#feat=flexbox))
+
+### Components
+- Credit Card Brand: shows the brand icon bases on the card number (Regex)
+- Dropdown: handle dropdown/select options
+- Fitler: colletion of dropdowns and submission of selected options
+- Header: structure, contains the filters
+- Loading: an icon and text (optionals) to show feedback when something is loading
+- Transaction: shows transactions list
+  - List: colletion of transactions items
+  - Item: single transaction with data
+    - Card: credit card info of single transaction
+
+### Services
+- ApiInterceptor: to intercept every request and handle authorization
+- DropdownService: handle selecting options on drodown
+- TransactionService: get transaction form endpoint. Hand;es comunication when transactions are updated or needs to update.
+
+### Models
+All used interfaces.
+
+### Animations
+Collection of animation to use across components.
+
+### Themes
+You can write your own theme and apply your custom styles. There're currently two themes available: *Default* and *Dark* Theme.
+To create a new theme see how `src/assets/scss/theme/` are structured, the most important file that you'll edit is the `config/_variable.theme.scss`.
+
+#### Enabling a theme
+Import your new theme on `src/assets/scss/theme/import.theme.scss`.
+> IMPORTANT: Default Theme contains the base for all styles and should always be imported as last.
+
+#### Components SCSS
+*Required*: you need to import the theme file on each component to be able to access all global _styling/mixins/variables/functions_ E.g:
+
+component.scss
+```
+@import 'theme/import.theme';
+```
+
+
+## Angular CLI
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
 
 ## Development server

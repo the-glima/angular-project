@@ -21,3 +21,8 @@ body {
     padding: 30px;
   }
 }
+
+.container {
+  margin: 0 auto;
+  max-width: bp-media('xl');
+}

@@ -1,12 +1,6 @@
 <div class="transaction-table" [ngClass]="{'is-loading': isLoading}"  [@fadeInOutAnimation]>
-  <header class="transaction-header">
-    <div class="transaction-header-title">Name</div>
-    <div class="transaction-header-title">Brand</div>
-    <div class="transaction-header-title">Last 4 Digits</div>
-    <div class="transaction-header-title">Transaction Type</div>
-    <div class="transaction-header-title">Amount</div>
-    <div class="transaction-header-title">Currency</div>
-  </header>
+  <app-transaction-header class="transaction-header-list"></app-transaction-header>
+
   <div *ngIf="transactions && !error" class="transaction-content">
     <app-transaction-item *ngFor="let transactionItem of transactions" [transaction]="transactionItem"></app-transaction-item>
   </div>
