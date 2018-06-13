@@ -27,7 +27,7 @@ export const environment = {
 };
 ```
 
-> PS: To avoid comminting the credentials you can try [OS Enviroment Variable](https://medium.com/@natchiketa/angular-cli-and-os-environment-variables-4cfa3b849659)
+> PS: Do not commit the credentials, you can try [OS Enviroment Variable](https://medium.com/@natchiketa/angular-cli-and-os-environment-variables-4cfa3b849659)
 
 ### Running
 After the configuration just run:
