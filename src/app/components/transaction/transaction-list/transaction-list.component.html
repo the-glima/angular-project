@@ -1,13 +1,13 @@
 <div class="transaction-table" [ngClass]="{'is-loading': isLoading}"  [@fadeInOutAnimation]>
   <app-transaction-header class="transaction-header-list"></app-transaction-header>
 
-  <div *ngIf="transactions && !error" class="transaction-content">
+  <div *ngIf="transactions && !showError" class="transaction-content">
     <app-transaction-item *ngFor="let transactionItem of transactions" [transaction]="transactionItem"></app-transaction-item>
   </div>
 
   <app-loading class="transaction-loading" [load]="isLoading"></app-loading>
 
-  <div *ngIf="error" class="transaction-error-message">
+  <div *ngIf="showError" class="transaction-error-message">
     <h2>
       <span class="icon-wrapper">
         <svg class="icon-warning">
@@ -18,5 +18,6 @@
     </h2>
     <p>Opps, somehting went wrong!</p>
     <p>Please, try again later.</p>
+    <p>Error: {{ errorMessage }}</p>
   </div>
 </div>

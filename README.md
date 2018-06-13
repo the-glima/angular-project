@@ -1,27 +1,57 @@
 # Rendering Transactions
-An Angular project to search users via the Github Search API.
+An Angular project to render transactions from an endpoint.
 
-# Stack
+# Angular CLI
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4. You'll need to install it:
 
+```
+> npm install -g @angular/cli
+```
+
+# Congiguration: API Basic Auth
+Edit the file `environments/environment.ts` with the API credentials:
+
+```
+export const environment = {
+  production: false,
+  apiUsername: '<username>',
+  apiPassword: '<password>'
+};
+```
+
+> PS: To avoid comminting the credentials you can try [OS Enviroment Variable](https://medium.com/@natchiketa/angular-cli-and-os-environment-variables-4cfa3b849659)
+
+# Running
+After the configuration just run:
+
+```
+> ng serve
+```
+
+# Technology Stack
 - Angular 5.2.0
+- Angular CLI
+- ES6
 - SCSS
 - Layout: this project is based on Flexible Box Layout ([see the support](https://caniuse.com/#feat=flexbox))
+- SVG Sprite for icons
 
 ### Components
-- Credit Card Brand: shows the brand icon bases on the card number (Regex)
+- Credit Card Brand: shows the brand icon based on the card number/Regex
 - Dropdown: handle dropdown/select options
-- Fitler: colletion of dropdowns and submission of selected options
-- Header: structure, contains the filters
-- Loading: an icon and text (optionals) to show feedback when something is loading
-- Transaction: shows transactions list
-  - List: colletion of transactions items
-  - Item: single transaction with data
+- Filter: collection of dropdowns and submission of selected options
+- Header: contains the filters
+- Loading: an icon and text (optional) to show feedback when something it's loading
+- Transaction: shows transactions
+  - List: collection of transactions items
+  - Header: header for transtacions list or transaction item
+  - Item: single transaction with displaying the data
     - Card: credit card info of single transaction
 
 ### Services
-- ApiInterceptor: to intercept every request and handle authorization
-- DropdownService: handle selecting options on drodown
-- TransactionService: get transaction form endpoint. Hand;es comunication when transactions are updated or needs to update.
+- ApiInterceptor: intercept every request and handle authorization
+- DropdownService: handle selecting options on dropdown
+- TransactionService: get transactions from endpoint. Handle communication when transactions are updated or need to update.
 
 ### Models
 All used interfaces.
@@ -45,30 +75,9 @@ component.scss
 @import 'theme/import.theme';
 ```
 
+## To Do
+- Create Pagination component
+- Tests
 
-## Angular CLI
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## License
+Copyright (c) Gabriel Lima Licensed under the MIT license.

@@ -21,4 +21,8 @@
   color: theme-color('primary', 'base');
 
   &:last-child { padding-bottom: 0; }
+
+  @include breakpoint(min-width,bp-media('mobile')) {
+   padding-bottom: 0;
+  }
 }
