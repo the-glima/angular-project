@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  apiUsername: null,
-  apiPassword: null
+  apiUsername: 'code-challenge',
+  apiPassword: 'payvisioner'
 };

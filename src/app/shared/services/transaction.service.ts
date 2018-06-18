@@ -8,7 +8,7 @@ import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class TransactionService {
-  reloadTransactions = new Subject<any>();
+  fetchTransactions = new Subject<any>();
   updatedTransactions = new Subject<any>();
   debounceTime = 1000;
   getTransactionsURL: string = apiConfig.transaction_url;

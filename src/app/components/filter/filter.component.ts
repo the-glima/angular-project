@@ -27,7 +27,7 @@ export class FilterComponent implements OnInit, OnDestroy {
 
   constructor(
     private dropdownService: DropdownService,
-    private TransactionService: TransactionService
+    private transactionService: TransactionService
   ) {}
 
   ngOnInit() {
@@ -71,7 +71,7 @@ export class FilterComponent implements OnInit, OnDestroy {
   }
 
   private updateTransactions() {
-    this.transactionSubscription = this.TransactionService.updatedTransactions.subscribe(
+    this.transactionSubscription = this.transactionService.updatedTransactions.subscribe(
       () => this.isLoading = false
     );
   }
@@ -80,7 +80,7 @@ export class FilterComponent implements OnInit, OnDestroy {
     this.searchSubscription = this.clicks.pipe(debounceTime(300)).subscribe(() => {
       const filterParam: string = this.getFilterParams(this.filters);
 
-      this.TransactionService.reloadTransactions.next(filterParam);
+      this.transactionService.fetchTransactions.next(filterParam);
     });
   }
 
