@@ -16,10 +16,10 @@ export class TransactionListComponent implements OnInit, OnDestroy {
   showError: boolean = false;
   errorMessage: string;
   isLoading: boolean = false;
-  private reloadSubscritpion: Subscription;
+  private fetchSubscritpion: Subscription;
   private updateSubscritpion: Subscription;
 
-  constructor(private TransactionService: TransactionService) {}
+  constructor(private transactionService: TransactionService) {}
 
   ngOnInit() {
     this.getTransactions(null);
@@ -28,12 +28,12 @@ export class TransactionListComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.reloadSubscritpion.unsubscribe();
+    this.fetchSubscritpion.unsubscribe();
     this.updateSubscritpion.unsubscribe();
   }
 
   private getTransactions(filterParam: FilterParam) {
-    this.TransactionService.getTranscations(filterParam)
+    this.transactionService.getTranscations(filterParam)
       .subscribe(
         (transactions: Transaction) => this.transactions = transactions,
         (error) => {
@@ -44,21 +44,21 @@ export class TransactionListComponent implements OnInit, OnDestroy {
   }
 
   private watchTransactions() {
-    this.reloadSubscritpion = this.TransactionService.reloadTransactions.subscribe(
+    this.fetchSubscritpion = this.transactionService.fetchTransactions.subscribe(
       (filterParam: FilterParam) => {
         this.showError = false;
         this.isLoading = true;
 
         setTimeout (() => {
           this.getTransactions(filterParam);
-          this.TransactionService.updatedTransactions.next(filterParam);
+          this.transactionService.updatedTransactions.next(filterParam);
         }, 800);
       }
     );
   }
 
   private updateTransactions() {
-    this.updateSubscritpion = this.TransactionService.updatedTransactions.subscribe(
+    this.updateSubscritpion = this.transactionService.updatedTransactions.subscribe(
       () => this.isLoading = false
     );
   }
