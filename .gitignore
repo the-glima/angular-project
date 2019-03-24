@@ -43,9 +43,6 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# Env Variables
-environments/
-
 # HTTP
 *.http
 
