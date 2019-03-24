@@ -3,7 +3,7 @@ An Angular project to render transactions from an endpoint.
 
 ## Development Server
 #### Npm / Angular CLI
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4. 
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
 If already have it installed just run:
 
 ```
@@ -17,7 +17,7 @@ If not:
 ```
 
 ### API Basic Auth
-Edit the file `environments/environment.ts` with the API credentials:
+Create a file `environments/environment.ts` with the API credentials:
 
 ```
 export const environment = {
@@ -26,6 +26,8 @@ export const environment = {
   apiPassword: '<password>'
 };
 ```
+
+It's being hidden by default.
 
 > PS: Do not commit the credentials, you can try [OS Enviroment Variable](https://medium.com/@natchiketa/angular-cli-and-os-environment-variables-4cfa3b849659)
 

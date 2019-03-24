@@ -44,7 +44,7 @@ testem.log
 Thumbs.db
 
 # Env Variables
-environment.config.ts
+environments/
 
 # HTTP
 *.http
