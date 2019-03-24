@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('payvision-transactions App', () => {
+describe('transactions App', () => {
   let page: AppPage;
 
   beforeEach(() => {

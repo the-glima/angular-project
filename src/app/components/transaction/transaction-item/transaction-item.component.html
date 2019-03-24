@@ -7,7 +7,7 @@
       <div class="transaction-cell">
         <app-credit-card-brand class="transaction-credit-card" [creditCardNumber]="transaction.card.firstSixDigits"></app-credit-card-brand>
       </div>
-      <div class="transaction-cell">{{ transaction.card.lastFourDigits }}</div>
+      <div class="transaction-cell">XXXX {{ transaction.card.lastFourDigits }}</div>
       <div class="transaction-cell">{{ transaction.action }}</div>
       <div class="transaction-cell">{{ transaction.amount | currency: transaction.currencyCode }}</div>
       <div class="transaction-cell">{{ transaction.currencyCode }}</div>
