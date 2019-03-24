@@ -1,14 +1,22 @@
 # Rendering Transactions
 An Angular project to render transactions from an endpoint.
 
-# Angular CLI
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4. You'll need to install it:
+## Development Server
+#### Npm / Angular CLI
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4. 
+If already have it installed just run:
+
+```
+> npm install
+```
+
+If not:
 
 ```
 > npm install -g @angular/cli
 ```
 
-# Congiguration: API Basic Auth
+### API Basic Auth
 Edit the file `environments/environment.ts` with the API credentials:
 
 ```
@@ -19,16 +27,16 @@ export const environment = {
 };
 ```
 
-> PS: To avoid comminting the credentials you can try [OS Enviroment Variable](https://medium.com/@natchiketa/angular-cli-and-os-environment-variables-4cfa3b849659)
+> PS: Do not commit the credentials, you can try [OS Enviroment Variable](https://medium.com/@natchiketa/angular-cli-and-os-environment-variables-4cfa3b849659)
 
-# Running
+### Running
 After the configuration just run:
 
 ```
 > ng serve
 ```
 
-# Technology Stack
+## Technologies Stack
 - Angular 5.2.0
 - Angular CLI
 - ES6
@@ -36,7 +44,7 @@ After the configuration just run:
 - Layout: this project is based on Flexible Box Layout ([see the support](https://caniuse.com/#feat=flexbox))
 - SVG Sprite for icons
 
-### Components
+## Components
 - Credit Card Brand: shows the brand icon based on the card number/Regex
 - Dropdown: handle dropdown/select options
 - Filter: collection of dropdowns and submission of selected options
