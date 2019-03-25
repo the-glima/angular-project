@@ -11,13 +11,13 @@ export class TransactionService {
   fetchTransactions = new Subject<any>();
   updatedTransactions = new Subject<any>();
   debounceTime = 1000;
-  getTransactionsURL: string = apiConfig.transaction_url;
+  getTransactionsURL: string = apiConfig.transaction_api_url;
 
   constructor(private httpClient: HttpClient) {}
 
   getTranscations(filterParam: FilterParam) {
     if (filterParam) {
-      this.getTransactionsURL = apiConfig.transaction_url + `?${filterParam}`
+      this.getTransactionsURL = apiConfig.transaction_api_url + `?${filterParam}`
     }
 
     return this.httpClient.get(this.getTransactionsURL).pipe(

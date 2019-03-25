@@ -23,7 +23,6 @@ import {
 
 // Services
 import {
-  ApiInterceptor,
   TransactionService,
   DropdownService
 } from '@app/shared/services';
@@ -49,12 +48,7 @@ import {
   ],
   providers: [
     TransactionService,
-    DropdownService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: ApiInterceptor,
-      multi: true
-    }
+    DropdownService
   ],
   bootstrap: [AppComponent]
 })

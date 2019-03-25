@@ -3,7 +3,7 @@ An Angular project to render transactions from an endpoint.
 
 ## Development Server
 #### Npm / Angular CLI
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4. 
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
 If already have it installed just run:
 
 ```
@@ -57,7 +57,6 @@ After the configuration just run:
     - Card: credit card info of single transaction
 
 ### Services
-- ApiInterceptor: intercept every request and handle authorization
 - DropdownService: handle selecting options on dropdown
 - TransactionService: get transactions from endpoint. Handle communication when transactions are updated or need to update.
 
