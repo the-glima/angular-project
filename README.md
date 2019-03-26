@@ -38,6 +38,19 @@ After the configuration just run:
 > ng serve
 ```
 
+### Deploy to gh-pages
+
+Make sure that the base-href points to your GH URL:
+
+```
+> ng build --prod --output-path transactions --base-href "https:///gabriel-lima-dev.github.io/transactions/"
+```
+
+Deploy:
+```
+> ngh --dir=transactions
+```
+
 ## Technologies Stack
 - Angular 5.2.0
 - Angular CLI
@@ -59,7 +72,6 @@ After the configuration just run:
     - Card: credit card info of single transaction
 
 ### Services
-- ApiInterceptor: intercept every request and handle authorization
 - DropdownService: handle selecting options on dropdown
 - TransactionService: get transactions from endpoint. Handle communication when transactions are updated or need to update.
 

@@ -1,6 +1,8 @@
+import { environment } from "@env/environment";
+
 export const apiConfig = {
-  transaction_url: 'https://jovs5zmau3.execute-api.eu-west-1.amazonaws.com/prod/transactions',
-  transaction_filters: {
+  transaction_api_url: environment.transaction_api_url,
+  transaction_api_filters: {
     paymentType: {
       id: 1,
       title: 'Transaction Type',

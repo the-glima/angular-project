@@ -16,8 +16,8 @@ import { fadeInOutAnimation } from '@app/shared/animations';
   encapsulation: ViewEncapsulation.None
 })
 export class FilterComponent implements OnInit, OnDestroy {
-  currencyFilters = apiConfig.transaction_filters.currencyCode;
-  paymentFilters = apiConfig.transaction_filters.paymentType;
+  currencyFilters = apiConfig.transaction_api_filters.currencyCode;
+  paymentFilters = apiConfig.transaction_api_filters.paymentType;
   filters: Filter[] = [];
   isLoading: boolean = false;
   private clicks = new Subject();
