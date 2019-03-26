@@ -17,7 +17,7 @@ If not:
 ```
 
 ### API Basic Auth
-Edit the file `environments/environment.ts` with the API credentials:
+Create a file `environments/environment.ts` with the API credentials:
 
 ```
 export const environment = {
@@ -26,6 +26,8 @@ export const environment = {
   apiPassword: '<password>'
 };
 ```
+
+It's being hidden by default.
 
 > PS: Do not commit the credentials, you can try [OS Enviroment Variable](https://medium.com/@natchiketa/angular-cli-and-os-environment-variables-4cfa3b849659)
 
