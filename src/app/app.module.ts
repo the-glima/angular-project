@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppComponent } from './app.component';
 
@@ -21,11 +23,14 @@ import {
   TransactionCardComponent
 } from './components/transaction/index';
 
+import { transactionsReducer } from '../store/reducers/app.reducer';
+
 // Services
 import {
   TransactionService,
   DropdownService
 } from '@app/shared/services';
+import { environment } from '@env/environment.prod';
 
 @NgModule({
   declarations: [
@@ -45,6 +50,11 @@ import {
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    StoreModule.forRoot({transactions: transactionsReducer}),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production
+    }),
   ],
   providers: [
     TransactionService,

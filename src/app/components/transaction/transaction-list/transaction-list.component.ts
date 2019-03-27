@@ -4,6 +4,8 @@ import { TransactionService } from '@app/shared/services';
 import { Transaction, FilterParam } from '@app/shared/models';
 import { fadeInOutAnimation } from '@app/shared/animations';
 import { Subscription } from 'rxjs/Subscription';
+import { Store } from '@ngrx/store';
+import { AppState } from 'store/reducers/app.reducer';
 
 @Component({
   selector: 'app-transaction-list',
@@ -19,28 +21,35 @@ export class TransactionListComponent implements OnInit, OnDestroy {
   private fetchSubscritpion: Subscription;
   private updateSubscritpion: Subscription;
 
-  constructor(private transactionService: TransactionService) {}
+  constructor(
+    private transactionService: TransactionService,
+    private store: Store<AppState>
+  ) {}
+
 
   ngOnInit() {
     this.getTransactions(null);
-    this.watchTransactions();
-    this.updateTransactions();
+    // this.watchTransactions();
+    // this.updateTransactions();
   }
 
   ngOnDestroy() {
-    this.fetchSubscritpion.unsubscribe();
-    this.updateSubscritpion.unsubscribe();
+    // this.fetchSubscritpion.unsubscribe();
+    // this.updateSubscritpion.unsubscribe();
   }
 
   private getTransactions(filterParam: FilterParam) {
-    this.transactionService.getTranscations(filterParam)
-      .subscribe(
-        (transactions: Transaction) => this.transactions = transactions,
-        (error) => {
-          this.showError = true;
-          this.errorMessage = error['error']['message']
-        }
-      );
+    // this.transactionService.getTranscations(filterParam)
+    //   .subscribe(
+    //     (transactions: Transaction) => this.transactions = transactions,
+    //     (error) => {
+    //       this.showError = true;
+    //       this.errorMessage = error['error']['message']
+    //     }
+    //   );
+
+    this.store.select('transactions')
+      .subscribe(transactions => this.transactions = transactions);
   }
 
   private watchTransactions() {
