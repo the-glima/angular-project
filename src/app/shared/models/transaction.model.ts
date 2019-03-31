@@ -1,15 +1,11 @@
+import { Card } from './card.model';
+
 export interface Transaction {
   id: string;
   action: string;
-  amount: number;
-  brandId: number;
+  amount: string;
+  brandId: string;
   currencyCode: string;
   trackingCode: string;
-  card: {
-    expiryMonth: number;
-    expiryYear: number;
-    firstSixDigits: number;
-    lastFourDigits: number;
-    holderName: string;
-  };
+  card: Card;
 }

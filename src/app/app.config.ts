@@ -1,4 +1,4 @@
-import { environment } from "@env/environment";
+import { environment } from '@env/environment';
 
 export const apiConfig = {
   transaction_api_url: environment.transaction_api_url,

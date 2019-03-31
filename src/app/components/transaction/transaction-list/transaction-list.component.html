@@ -1,11 +1,23 @@
-<div class="transaction-table" [ngClass]="{'is-loading': isLoading}"  [@fadeInOutAnimation]>
-  <app-transaction-header class="transaction-header-list"></app-transaction-header>
+<div
+  class="transaction-table"
+  [ngClass]="{ 'is-loading': isLoading }"
+  [@fadeInOutAnimation]
+>
+  <app-transaction-header
+    class="transaction-header-list"
+  ></app-transaction-header>
 
-  <div *ngIf="transactions && !showError" class="transaction-content">
-    <app-transaction-item *ngFor="let transactionItem of transactions" [transaction]="transactionItem"></app-transaction-item>
+  <div class="transaction-content">
+    <app-transaction-item
+      *ngFor="let transactionItem of (transactions$ | async)"
+      [transaction]="transactionItem"
+    ></app-transaction-item>
   </div>
 
-  <app-loading class="transaction-loading" [load]="isLoading"></app-loading>
+  <app-loading
+    class="transaction-loading"
+    [load]="!!(isLoading | async)"
+  ></app-loading>
 
   <div *ngIf="showError" class="transaction-error-message">
     <h2>

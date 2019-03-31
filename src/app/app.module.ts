@@ -23,14 +23,12 @@ import {
   TransactionCardComponent
 } from './components/transaction/index';
 
-import { transactionsReducer } from '../store/reducers/app.reducer';
+import { appReducers, appEffects } from '@app/store/';
 
 // Services
-import {
-  TransactionService,
-  DropdownService
-} from '@app/shared/services';
+import { TransactionService, DropdownService } from '@app/shared/services';
 import { environment } from '@env/environment.prod';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -50,16 +48,14 @@ import { environment } from '@env/environment.prod';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    StoreModule.forRoot({transactions: transactionsReducer}),
+    StoreModule.forRoot(appReducers),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production
     }),
+    EffectsModule.forRoot(appEffects)
   ],
-  providers: [
-    TransactionService,
-    DropdownService
-  ],
+  providers: [TransactionService, DropdownService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

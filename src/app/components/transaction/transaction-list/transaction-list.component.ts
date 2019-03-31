@@ -1,11 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Observable } from 'rxjs';
 
-import { TransactionService } from '@app/shared/services';
-import { Transaction, FilterParam } from '@app/shared/models';
-import { fadeInOutAnimation } from '@app/shared/animations';
-import { Subscription } from 'rxjs/Subscription';
 import { Store } from '@ngrx/store';
-import { AppState } from 'store/reducers/app.reducer';
+import { AppState } from '@app/store/state/state';
+
+import { Transaction } from '@app/shared/models';
+import { fadeInOutAnimation } from '@app/shared/animations';
+import * as fromSelectors from '@store/selectors/selectors';
+import * as fromActions from '@store/actions';
 
 @Component({
   selector: 'app-transaction-list',
@@ -14,61 +16,18 @@ import { AppState } from 'store/reducers/app.reducer';
   animations: [fadeInOutAnimation]
 })
 export class TransactionListComponent implements OnInit, OnDestroy {
-  transactions: Transaction;
-  showError: boolean = false;
-  errorMessage: string;
-  isLoading: boolean = false;
-  private fetchSubscritpion: Subscription;
-  private updateSubscritpion: Subscription;
+  transactions$: Observable<any>;
+  isLoading$: Observable<any>;
 
-  constructor(
-    private transactionService: TransactionService,
-    private store: Store<AppState>
-  ) {}
-
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit() {
-    this.getTransactions(null);
-    // this.watchTransactions();
-    // this.updateTransactions();
-  }
-
-  ngOnDestroy() {
-    // this.fetchSubscritpion.unsubscribe();
-    // this.updateSubscritpion.unsubscribe();
-  }
-
-  private getTransactions(filterParam: FilterParam) {
-    // this.transactionService.getTranscations(filterParam)
-    //   .subscribe(
-    //     (transactions: Transaction) => this.transactions = transactions,
-    //     (error) => {
-    //       this.showError = true;
-    //       this.errorMessage = error['error']['message']
-    //     }
-    //   );
-
-    this.store.select('transactions')
-      .subscribe(transactions => this.transactions = transactions);
-  }
-
-  private watchTransactions() {
-    this.fetchSubscritpion = this.transactionService.fetchTransactions.subscribe(
-      (filterParam: FilterParam) => {
-        this.showError = false;
-        this.isLoading = true;
-
-        setTimeout (() => {
-          this.getTransactions(filterParam);
-          this.transactionService.updatedTransactions.next(filterParam);
-        }, 800);
-      }
+    this.transactions$ = this.store.select(fromSelectors.selectAllTransactions);
+    this.isLoading$ = this.store.select(
+      fromSelectors.selectTransactionsLoading
     );
+    this.store.dispatch(new fromActions.TransactionActions.LoadAll());
   }
 
-  private updateTransactions() {
-    this.updateSubscritpion = this.transactionService.updatedTransactions.subscribe(
-      () => this.isLoading = false
-    );
-  }
+  ngOnDestroy() {}
 }
