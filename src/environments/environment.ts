@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  transaction_api_url: 'http://localhost:3000/transactions'
+  transaction_api_url: 'http://localhost:3200/api'
 };

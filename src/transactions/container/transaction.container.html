@@ -1,0 +1,35 @@
+<div
+  *ngIf="!(isLoading | async)"
+  class="transaction-table"
+  [@fadeInOutAnimation]
+>
+  <app-transaction-header
+    class="transaction-header-list"
+  ></app-transaction-header>
+
+  <div class="transaction-content">
+    <app-transaction-item
+      *ngFor="let transactionItem of (transactions | async)"
+      [transaction]="transactionItem"
+    ></app-transaction-item>
+  </div>
+</div>
+
+<app-loading
+  class="transactions-loading"
+  [load]="isLoading | async"
+></app-loading>
+
+<div *ngIf="showError" class="transaction-error-message">
+  <h2>
+    <span class="icon-wrapper">
+      <svg class="icon-warning">
+        <use xlink:href="#icon-warning" />
+      </svg>
+    </span>
+    <span>Unable to show transactions</span>
+  </h2>
+  <p>Opps, somehting went wrong!</p>
+  <p>Please, try again later.</p>
+  <p>Error: {{ errorMessage }}</p>
+</div>
