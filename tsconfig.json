@@ -15,7 +15,9 @@
     "paths": {
       "@app/*": ["app/*"],
       "@store/*": ["app/store/*"],
-      "@env/*": ["environments/*"]
+      "@common/*": ["common/*"],
+      "@env/*": ["environments/*"],
+      "@transactions/*": ["transactions/*"]
     },
     "module": "es2015"
   }
