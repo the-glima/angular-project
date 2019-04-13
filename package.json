@@ -3,15 +3,15 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "generate:svg-sprite": "svg2sprite ./src/assets/icons ./src/assets/icons/sprite.svg --stripAttrs fill --stripAttrs stroke --stripAttrs --stripEmptyTags",
+    "generate:svg-multicolor-sprite": "svg2sprite ./src/assets/icons ./src/assets/icons/sprite.svg",
+    "sprite": "npm run generate:svg-sprite && npm run generate:svg-multicolor-sprite",
     "ng": "ng",
-    "start": "ng serve",
+    "start": "npm run sprite && ng serve",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "generate:svg-sprite": "svg2sprite ./src/assets/icons ./src/assets/icons/sprite.svg --stripAttrs fill --stripAttrs stroke --stripAttrs --stripEmptyTags",
-    "generate:svg-multicolor-sprite": "svg2sprite ./src/assets/icons ./src/assets/icons/sprite.svg",
-    "sprite": "npm run generate:svg-sprite && npm run generate:svg-multicolor-sprite"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {

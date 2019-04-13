@@ -1,8 +1,10 @@
 <div class="credit-card-brand">
-  <svg-icon-sprite
-    [src]="'icon-cc-' + cardName"
-    [viewBox]="'0 0 32 32'"
-    [classes]="'credit-card-icon'"
-  ></svg-icon-sprite>
+  <span>
+    <svg-icon-sprite
+      [src]="'icon-cc-' + cardName"
+      [viewBox]="'0 0 32 32'"
+      [classes]="'credit-card-icon'"
+    ></svg-icon-sprite>
+  </span>
   <span class="credit-card-name">{{ cardName }}</span>
 </div>
