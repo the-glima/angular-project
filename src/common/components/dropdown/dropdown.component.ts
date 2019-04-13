@@ -4,7 +4,8 @@ import {
   Input,
   ViewChild,
   ElementRef,
-  Renderer2
+  Renderer2,
+  ViewEncapsulation
 } from '@angular/core';
 import { DropdownService } from '@common/services/dropdown.service';
 import { Dropdown } from '@common/models/dropdown.model';
@@ -12,7 +13,8 @@ import { Dropdown } from '@common/models/dropdown.model';
 @Component({
   selector: 'app-dropdown',
   templateUrl: './dropdown.component.html',
-  styleUrls: ['./dropdown.component.scss']
+  styleUrls: ['./dropdown.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class DropdownComponent {
   @Input() dropdowbObject: any;
