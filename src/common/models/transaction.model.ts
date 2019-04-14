@@ -9,7 +9,3 @@ export interface Transaction {
   trackingCode: string;
   card: Card;
 }
-
-export interface TransactionResponse {
-  data: Transaction[];
-}

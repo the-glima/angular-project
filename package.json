@@ -11,7 +11,9 @@
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build-gh": "ng build --prod --output-path dist/transactions --base-href 'https:///gabriel-lima-dev.github.io/transactions/'",
+    "publish-gh": "npm run build-gh && ngh --dir=dist/transactions"
   },
   "private": true,
   "dependencies": {

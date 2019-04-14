@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  transaction_api_url: 'http://localhost:3200/api'
+  transaction_api_url:
+    'https://my-json-server.typicode.com/gabriel-lima-dev/transactions-api/data'
 };

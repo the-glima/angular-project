@@ -7,7 +7,7 @@ import { switchMap, map, catchError } from 'rxjs/operators';
 import { of, Observable } from 'rxjs';
 
 import { TransactionService } from '@transactions/services/transaction.service';
-import { TransactionResponse } from '@common/models';
+import { Transaction } from '@common/models';
 import { TransactionActions } from '@transactions/actions/transaction.actions';
 
 @Injectable()
@@ -23,9 +23,9 @@ export class TransactionsEffect {
     switchMap(action =>
       this.transactionService.getTranscations().pipe(
         map(
-          (response: TransactionResponse) =>
+          (response: Transaction[]) =>
             new TransactionActions.LoadAllSuccess({
-              transactions: response.data
+              transactions: response
             })
         ),
         catchError(error =>

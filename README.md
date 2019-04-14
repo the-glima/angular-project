@@ -48,7 +48,7 @@ After the configuration just run:
 Make sure that the base-href points to your GH URL:
 
 ```
-> ng build --prod --output-path transactions --base-href "https:///gabriel-lima-dev.github.io/transactions/"
+> ng build --prod --output-path dist/transactions --base-href "https:///gabriel-lima-dev.github.io/transactions/"
 ```
 
 Deploy:
