@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { IconSpriteModule } from 'ng-svg-icon-sprite';
-
 import * as fromCommonComponents from '@common/components';
 
 @NgModule({
