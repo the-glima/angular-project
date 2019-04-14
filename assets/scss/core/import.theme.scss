@@ -1,8 +1,11 @@
 // Theme: Core
 // -------------------------------------
 
-// Mixin: Mixins and Functions
+// Mixin: mixins and Functions
 @import "mixin/import.theme";
 
-// Layout: Scaffold and reset
+// Helpers: helper classes
+@import "helpers/import.theme";
+
+// Layout: scaffold and reset
 @import "layout/import.theme";
