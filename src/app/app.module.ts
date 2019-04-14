@@ -5,7 +5,6 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppComponent } from './app.component';
-import * as fromComponents from './components/';
 
 import { TransactionsModule } from '@transactions/transactions.module';
 import { ComponentsModule } from '@common/common.module';
@@ -23,7 +22,7 @@ import { environment } from '@env/environment.prod';
       logOnly: environment.production
     })
   ],
-  declarations: [AppComponent, ...Object.values(fromComponents)],
+  declarations: [AppComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

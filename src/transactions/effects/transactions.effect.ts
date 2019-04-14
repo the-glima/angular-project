@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Action } from '@ngrx/store';
 import { Effect, ofType, Actions } from '@ngrx/effects';
 
-import { switchMap, map, catchError, delay } from 'rxjs/operators';
+import { switchMap, map, catchError } from 'rxjs/operators';
 import { of, Observable } from 'rxjs';
 
 import { TransactionService } from '@transactions/services/transaction.service';

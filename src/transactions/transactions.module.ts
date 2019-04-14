@@ -10,7 +10,9 @@ import { ComponentsModule } from '@common/common.module';
 import { TransactionContainerComponent } from '@transactions/container/transaction.container';
 import * as fromComponents from '@transactions/components';
 import * as fromReducers from '@transactions/reducers';
-import { fromEffects } from '@transactions/effects';
+import * as fromServices from '@transactions/services';
+import * as fromEffects from '@transactions/effects';
+
 import { environment } from '@env/environment.prod';
 
 @NgModule({
@@ -23,12 +25,13 @@ import { environment } from '@env/environment.prod';
       maxAge: 25,
       logOnly: environment.production
     }),
-    EffectsModule.forRoot(fromEffects)
+    EffectsModule.forRoot([...Object.values(fromEffects)])
   ],
   declarations: [
     TransactionContainerComponent,
     ...Object.values(fromComponents)
   ],
-  exports: [TransactionContainerComponent]
+  exports: [TransactionContainerComponent],
+  providers: [...Object.values(fromServices)]
 })
 export class TransactionsModule {}

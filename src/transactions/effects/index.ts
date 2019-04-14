@@ -1,3 +1,1 @@
-import { TransactionsEffect } from './transactions.effect';
-
-export const fromEffects: any[] = [TransactionsEffect];
+export { TransactionsEffect } from './transactions.effect';
