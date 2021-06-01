@@ -5,6 +5,5 @@
 
 export const environment = {
   production: false,
-  transaction_api_url:
-    'https://my-json-server.typicode.com/the-glima/transactions-api/data'
+  transaction_api_url: 'https://run.mocky.io/v3/a5b931c3-ce21-4162-acb6-886f19206865'
 };
