@@ -22,9 +22,15 @@ export class TransactionsEffect {
     switchMap(action =>
       this.transactionService.getTransactions().pipe(
         map((response: any) => response?.data),
-        map((data: Transaction[]) => new TransactionActions.LoadAllSuccess({ transactions: data })),
-        catchError(error => of(new TransactionActions.LoadAllFail({ error, action })))
+        map((data: Transaction[]) => new TransactionActions.LoadAllSuccess({ transactions: data , error: null })),
+        catchError(error => {
+          console.log(error);
+          
+          return of(new TransactionActions.LoadAllFail({ error, action }))
+        })
       )
     )
   ));
 }
+
+

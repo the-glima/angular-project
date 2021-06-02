@@ -6,7 +6,10 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "start": "ng serve"
+    "start": "ng serve",
+    "generate:svg-sprite": "npx svg2sprite ./src/assets/icons ./src/assets/sprites/sprite.svg --stripAttrs fill --stripAttrs stroke --stripAttrs id",
+    "generate:svg-multicolor-sprite": "npx svg2sprite ./src/assets/icons ./src/assets/sprites/sprite.svg",
+    "sprite": "yarn generate:svg-sprite && yarn generate:svg-multicolor-sprite"
   },
   "license": "MIT",
   "private": true,
@@ -35,7 +38,9 @@
     "@ngrx/store-devtools": "^12.0.0",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
+    "faker": "^5.5.3",
     "jasmine-core": "~3.7.0",
+    "json-server": "^0.16.3",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.0.3",
@@ -44,8 +49,6 @@
     "ng-svg-icon-sprite": "^1.10.0",
     "svg2sprite-cli": "^2.0.1",
     "typescript": "~4.2.3",
-    "faker": "^5.5.3",
-    "json-server": "^0.16.3",
     "uuid": "^8.3.2"
   }
 }

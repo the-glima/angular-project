@@ -18,8 +18,7 @@ import * as fromReducers from '@transactions/reducers';
 })
 export class TransactionContainerComponent implements OnInit, OnDestroy {
   transactions$!: Observable<fromTransactionsModel.Transaction[]>;
-  showError = false;
-  errorMessage = '';
+  loadError$!: Observable<any>;
 
   private onDestroy$ = new Subject();
 
@@ -27,8 +26,12 @@ export class TransactionContainerComponent implements OnInit, OnDestroy {
     return this.store.pipe(select(fromSelectors.selectAllTransactions));
   }
 
-  get isLoading(): Observable<boolean | undefined> {
+  get isLoading(): Observable<any> {
     return this.store.pipe(select(fromSelectors.selectTransactionsLoading));
+  }
+
+  get loadError(): Observable<any> {
+    return this.store.pipe(select(fromSelectors.selectTransactionsLoadError));
   }
 
   constructor(private store: Store<fromReducers.TransactionState>) {}

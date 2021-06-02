@@ -7,7 +7,7 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class LoadingComponent {
-  @Input() load = false;
+  @Input() load: boolean | null | undefined = false;
   @Input() text = true;
   @Input() icon = true;
 }

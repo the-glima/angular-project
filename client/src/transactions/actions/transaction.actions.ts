@@ -16,7 +16,7 @@ export namespace TransactionActions {
   export class LoadAllSuccess implements Action {
     readonly type = ActionTypes.LoadAllSuccess;
 
-    constructor(public payload: { transactions: Transaction[] }) {}
+    constructor(public payload: { transactions: Transaction[], error: any }) {}
   }
 
   export class LoadAllFail implements Action {

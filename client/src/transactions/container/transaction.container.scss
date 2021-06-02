@@ -26,28 +26,20 @@
 
 // Error
 .transaction-error-message {
+  @include card;
   display: flex;
   justify-content: center;
   min-height: 240px;
   padding: 30px 20px;
   flex-direction: column;
   text-align: center;
-  @include card;
-
-  @include breakpoint(min-width, bp-media("mobile")) {
-    @include card($reset: true);
-  }
 
   h2 {
     margin-bottom: 16px;
     color: theme-color("danger", "base");
     display: flex;
-    justify-content: center;
     flex-direction: column;
-
-    @include breakpoint(min-width, bp-media("mobile")) {
-      flex-direction: row;
-    }
+    align-items: center;
   }
 
   p {
@@ -62,11 +54,7 @@
 
   .icon-warning {
     color: theme-color("danger", "base");
-    @include square(48px);
-
-    @include breakpoint(min-width, bp-media("mobile")) {
-      @include square(28px);
-    }
+    @include square(50px);
   }
 }
 

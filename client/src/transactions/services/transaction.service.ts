@@ -17,6 +17,6 @@ export class TransactionService {
   getTransactions(): Observable<any> {
     return this.httpClient
       .get<Transaction[]>(`${this.getTransactionsURL}`)
-      .pipe(catchError((error: any) => throwError(new Error(error))));
+      .pipe(catchError((error: any) => throwError(error)));
   }
 }

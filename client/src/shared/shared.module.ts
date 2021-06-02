@@ -22,10 +22,10 @@ const COMPONENTS = [
   imports: [
     CommonModule,
     IconSpriteModule,
-    IconSpriteModule.forRoot({ path: 'assets/icons/sprite.svg' })
+    IconSpriteModule.forRoot({ path: 'assets/sprites/sprite.svg' })
   ],
   declarations: [...COMPONENTS],
-  exports: [...COMPONENTS],
+  exports: [...COMPONENTS, IconSpriteModule],
   providers: [DropdownService]
 })
 export class SharedModule {}

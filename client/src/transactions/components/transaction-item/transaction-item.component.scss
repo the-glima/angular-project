@@ -24,10 +24,11 @@
   display: flex;
   justify-content: space-between;
   padding: 18px 14px;
-
+  
   @include breakpoint(min-width, bp-media('mobile')) {
     display: block;
     cursor: pointer;
+    background-color: theme-color('gray', 'light');
     border-bottom: 1px solid theme-color('contrast', '100');
 
     &:hover {

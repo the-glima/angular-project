@@ -8,6 +8,7 @@ export interface TransactionState extends EntityState<Models.Transaction> {
   selectedId: string | undefined;
   isLoading: boolean | undefined;
   isLoaded: boolean | undefined;
+  error: any;
 }
 
 export interface State {
@@ -22,7 +23,8 @@ export const adapter: EntityAdapter<Models.Transaction> = createEntityAdapter<Mo
 export const initialState: TransactionState = adapter.getInitialState({
   selectedId: undefined,
   isLoading: undefined,
-  isLoaded: undefined
+  isLoaded: undefined,
+  error: null
 });
 
 export function reducer(
@@ -41,7 +43,8 @@ export function reducer(
       return adapter.addMany(action.payload.transactions, {
         ...state,
         isLoading: false,
-        isLoaded: true
+        isLoaded: true,
+        error: null
       });
     }
 
@@ -49,7 +52,8 @@ export function reducer(
       return {
         ...state,
         isLoading: true,
-        isLoaded: false
+        isLoaded: false,
+        error: action.payload.error
       };
     }
 

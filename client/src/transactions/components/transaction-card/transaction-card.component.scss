@@ -8,9 +8,11 @@
   display: flex;
   padding: 30px;
   flex-direction: column;
+  background-color: theme-color('gray', 'light');
 
   @include breakpoint(min-width, bp-media('lg')) {
     flex-direction: row;
+    background-color: theme-color('white');
   }
 }
 
