@@ -1,23 +1,10 @@
 {
-  "name": "transactions-api",
-  "version": "1.0.0",
-  "description": "API for transactions project.",
+  "name": "angular-project-api",
+  "version": "0.2.0",
+  "description": "API for Angular Project Client.",
   "scripts": {
-    "serve": "node src/server.js"
+    "serve": "node server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gabriel-lima-dev/transactions-api.git"
-  },
-  "author": {
-    "name": "Gabriel Lima",
-    "github": "https://github.com/gabriel-lima-dev/"
-  },
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/gabriel-lima-dev/transactions-api/issues"
-  },
-  "homepage": "https://github.com/gabriel-lima-dev/transactions-api#readme",
   "devDependencies": {
     "faker": "^5.5.3",
     "json-server": "^0.16.3",

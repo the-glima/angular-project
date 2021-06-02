@@ -7,7 +7,7 @@ import { switchMap, map, catchError } from 'rxjs/operators';
 import { of, Observable } from 'rxjs';
 
 import { TransactionService } from '@transactions/services/transaction.service';
-import { Transaction } from 'shared/models';
+import { Transaction } from '@shared/models';
 import { TransactionActions } from '@transactions/actions/transaction.actions';
 
 @Injectable()

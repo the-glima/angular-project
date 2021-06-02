@@ -4,7 +4,7 @@ import { catchError } from 'rxjs/operators';
 
 import { apiConfig } from '@app/app.config';
 import { Observable, Subject, throwError } from 'rxjs';
-import { Transaction } from 'shared/models';
+import { Transaction } from '@shared/models';
 
 @Injectable()
 export class TransactionService {

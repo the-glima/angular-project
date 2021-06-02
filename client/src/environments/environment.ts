@@ -3,6 +3,8 @@
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
+// Make sure to run the API server
+
 export const environment = {
   production: false,
   transaction_api_url: 'http://localhost:8080/api'

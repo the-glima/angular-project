@@ -3,8 +3,8 @@ import { Observable, Subject } from 'rxjs';
 
 import { select, Store } from '@ngrx/store';
 
-import * as fromTransactionsModel from 'shared/models';
-import { fadeInOutAnimation } from 'shared/animations';
+import * as fromTransactionsModel from '@shared/models';
+import { fadeInOutAnimation } from '@shared/animations';
 
 import * as fromSelectors from '@transactions/selectors/transaction.selectors';
 import * as fromActions from '@transactions/actions';

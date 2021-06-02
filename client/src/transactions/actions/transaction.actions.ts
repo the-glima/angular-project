@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Transaction } from 'shared/models';
+import { Transaction } from '@shared/models';
 
 export namespace TransactionActions {
   export enum ActionTypes {

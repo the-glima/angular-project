@@ -1,7 +1,7 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 
-import { Transaction } from 'shared/models';
-import { fadeInOutAnimation } from 'shared/animations';
+import { Transaction } from '@shared/models';
+import { fadeInOutAnimation } from '@shared/animations';
 
 @Component({
   selector: 'app-transaction-item',

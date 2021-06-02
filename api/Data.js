@@ -1,6 +1,6 @@
 const faker = require("faker");
 
-class DataBase {
+class Data {
   get allData() {
     return this.createData();
   }
@@ -41,4 +41,4 @@ class DataBase {
   }
 }
 
-module.exports = DataBase;
+module.exports = Data;

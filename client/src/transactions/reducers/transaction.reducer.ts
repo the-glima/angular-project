@@ -2,7 +2,7 @@ import { ActionReducerMap } from '@ngrx/store';
 import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 
 import { TransactionActions } from '@transactions/actions/transaction.actions';
-import * as Models from 'shared/models';
+import * as Models from '@shared/models';
 
 export interface TransactionState extends EntityState<Models.Transaction> {
   selectedId: string | undefined;
