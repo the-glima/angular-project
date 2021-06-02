@@ -1,0 +1,79 @@
+// Theme Default: Component - Button
+// --------------------------------------------
+
+@mixin btn-states($color, $color-hover: null, $bg-color, $bg-color-hover: null) {
+  color: $color;
+  background-color: $bg-color;
+
+  @if not $color-hover {
+    $color-hover: $color;
+  }
+
+  @if not $bg-color-hover {
+    $bg-color-hover: $bg-color;
+  }
+
+  &:hover {
+    color: $color-hover;
+    background-color: $bg-color-hover;
+  }
+
+  &:active {
+    color: $color-hover;
+    background-color: darken($bg-color-hover, 6%);
+  }
+
+  &[disabled]:hover,
+  &[disabled]:active {
+    color: $color;
+    background-color: $bg-color;
+  }
+}
+
+@mixin generate-theme-buttons($map: $theme-colors-set) {
+  @each $val in $map {
+    %btn-#{$val} {
+      @extend %btn;
+
+      @include btn-states(
+        $color: theme-color('white'),
+        $bg-color: theme-color($val)
+      );
+    }
+  }
+}
+
+@include generate-theme-buttons();
+
+%btn {
+  min-width: 60px;
+  padding: .5rem 1rem;
+  border-radius: $border-radius;
+  transition: $transition;
+}
+
+%btn-reset {
+  padding: 0;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+%btn-default {
+  @extend %btn;
+  @include btn-states(
+    $color: theme-color('text'), 
+    $color-hover: theme-color('white'), 
+    $bg-color: lighten(theme-color('contrast', '100'), 60%), 
+    $bg-color-hover: theme-color('secondary')
+  );
+}
+
+%btn-white {
+  @include btn-states(
+    $bg-color: theme-color('white'),
+    $bg-color-hover: theme-color('gray', 'light'),
+    $color: theme-color('text')
+  );
+}
+

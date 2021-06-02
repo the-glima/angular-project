@@ -1,11 +1,11 @@
 import { Action } from '@ngrx/store';
-import { Transaction } from '@common/models';
+import { Transaction } from 'shared/models';
 
 export namespace TransactionActions {
   export enum ActionTypes {
     LoadAll = '[Transactions] Load All',
     LoadAllSuccess = '[Transactions] Load All Success',
-    LoadAllFaill = '[Transactions] Load All Fail',
+    LoadAllFail = '[Transactions] Load All Fail',
     Reset = '[Transactions] Reset'
   }
 
@@ -19,8 +19,8 @@ export namespace TransactionActions {
     constructor(public payload: { transactions: Transaction[] }) {}
   }
 
-  export class LoadAllFaill implements Action {
-    readonly type = ActionTypes.LoadAllFaill;
+  export class LoadAllFail implements Action {
+    readonly type = ActionTypes.LoadAllFail;
 
     constructor(public payload: { error: any; action: Action }) {}
   }
@@ -29,5 +29,5 @@ export namespace TransactionActions {
     readonly type = ActionTypes.Reset;
   }
 
-  export type ActionsUnion = LoadAll | LoadAllSuccess | LoadAllFaill | Reset;
+  export type ActionsUnion = LoadAll | LoadAllSuccess | LoadAllFail | Reset;
 }

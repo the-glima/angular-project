@@ -1,7 +1,9 @@
 // Component: Transaction Item
 // -------------------------------------
 
-@import 'theme/import.theme';
+@import "theme/default/variables";
+@import "core";
+@import "theme/default/components";
 
 .transaction-item {
   @include card;
@@ -29,14 +31,14 @@
     border-bottom: 1px solid theme-color('contrast', '100');
 
     &:hover {
-      color: theme-color('text', 'base');
-      background-color: theme-color('grey', 'light');
+      color: theme-color('text');
+      background-color: theme-color('gray', 'light');
     }
 
     .transaction-active & {
-      color: theme-color('text', 'base');
+      color: theme-color('text');
       font-weight: 600;
-      background-color: theme-color('grey', 'light');
+      background-color: theme-color('gray', 'light');
       border-bottom-color: theme-color('contrast', '100');
     }
   }
@@ -91,12 +93,12 @@
     display: none;
   }
 
-  .button {
+  .btn {
     display: flex;
     align-items: center;
 
     .transaction-active & {
-      @include button-secondary;
+      @extend %btn-primary;
     }
   }
 

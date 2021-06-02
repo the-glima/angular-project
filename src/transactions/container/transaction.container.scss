@@ -1,7 +1,9 @@
 // Component: Transaction List
 // -------------------------------------
 
-@import "theme/import.theme";
+@import "theme/default/variables";
+@import "core";
+@import "theme/default/variables";
 
 .transaction-table {
   position: relative;
@@ -14,7 +16,7 @@
 // Header
 .transaction-header-list {
   display: none;
-
+  
   @include breakpoint(min-width, bp-media("mobile")) {
     display: flex;
     padding: 14px;

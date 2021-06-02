@@ -1,0 +1,8 @@
+// Core: Mixin - Size
+// --------------------------------------------
+
+// Size
+@mixin square($size) {
+  width: $size;
+  height: $size;
+}

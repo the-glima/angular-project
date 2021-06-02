@@ -1,0 +1,8 @@
+<div class="filter-wrapper">
+  <app-dropdown class="filter-dropdown" [dropdownObject]="paymentFilters" [dropdownOptionText]="'capitalize'"></app-dropdown>
+  <app-dropdown class="filter-dropdown" [dropdownObject]="currencyFilters" [dropdownOptionText]="'uppercase'"></app-dropdown>
+  <button (click)="search($event)" [ngClass]="{'loading': isLoading}" class="filter-submit">
+    <span>Search</span>
+    <app-loading class="filter-submit-loading" [load]="isLoading" [text]="false"></app-loading>
+  </button>
+</div>

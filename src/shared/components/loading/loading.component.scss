@@ -1,0 +1,18 @@
+// Component: Loading
+// -------------------------------------
+
+@import "theme/default/variables";
+@import "core";
+
+// Loading
+.loading-wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.loading-icon {
+  color: theme-color('primary');
+  width: 64px;
+  height: 70px;
+}

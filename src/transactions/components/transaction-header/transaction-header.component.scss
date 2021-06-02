@@ -1,7 +1,8 @@
 // Component: Transaction Header
 // -------------------------------------
 
-@import 'theme/import.theme';
+@import "theme/default/variables";
+@import "core";
 
 .transaction-header {
   display: flex;
@@ -18,11 +19,11 @@
   @include table-cell-space;
   padding-bottom: 14px;
   font-weight: 600;
-  color: theme-color('primary', 'base');
+  color: theme-color('primary');
 
   &:last-child { padding-bottom: 0; }
 
-  @include breakpoint(min-width,bp-media('mobile')) {
+  @include breakpoint(min-width, bp-media('mobile')) {
    padding-bottom: 0;
   }
 }

@@ -1,0 +1,55 @@
+// Core Function: safe-zindex
+// A function to check the usage of an already z-index value
+// https://gist.github.com/the-glima/a4ff613d31c46886a6fd92f0354ebe19
+
+// @param $value: number - the value of a z-index to look for in z-indexes-map
+// @param $map: map - a custom z-indexes-map map list
+// @param $log-map: map - list of log flags to warn or thrown an error
+// @param $parent: string - To append parent's map key when logging. This should not be used, default 'null'.
+
+// @return number | null
+
+@function safe-zindex($value, $map: $z-indexes-map, $log-map: $z-indexes-log, $parent: null) {
+  $log-error: map-get($log-map, 'error');
+  $log-used-value: map-get($log-map, 'used-value');
+  $log-less-than: map-get($log-map, 'less-than');
+
+  @if (type-of($value) != number) {
+    @warn 'Value should be number. Property omitted!';
+    @return null;
+  }
+
+  $values: map-values($map);
+  $index: index($values, $value);
+  $parent-separator: if($parent, '#{$parent}.', '');
+
+  @each $val in $values {
+    $val-index: index($values, $val);
+    $val-key: map-get-key($val-index, $map);
+
+    @if $index {
+      $key: map-get-key($index, $map);
+
+      @if $log-used-value {
+        $warning: warning(
+          "The z-index value of '#{$value}' is being used by the key '#{$parent-separator}#{$key}'.",
+          $log-error
+        );
+      }
+
+      @return $value;
+    }
+
+    @if $log-less-than {
+      @if (type-of($val) == 'number' and $val-key and ($value < $val)) {
+        @warn "The value '#{$value}' is less than '#{$parent-separator}#{$val-key}: #{$val}'.";
+      }
+    }
+
+    @if (type-of($val) == 'map') {
+      @return safe-zindex($value: $value, $map: $val, $log-map: $log-map, $parent: $val-key);
+    }
+  }
+
+  @return $value;
+}

@@ -1,122 +1,27 @@
-# Rendering Transactions
+# MyApp
 
-An Angular project to render transactions from an endpoint.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.1.
 
-## Development Server
+## Development server
 
-#### Npm / Angular CLI
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
-If already have it installed just run:
+## Code scaffolding
 
-```
-> npm install
-```
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-If not:
+## Build
 
-```
-> npm install -g @angular/cli
-```
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-### API Basic Auth
+## Running unit tests
 
-Create a file `environments/environment.ts` with the API credentials:
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-```
-export const environment = {
-  production: false,
-  apiUsername: '<username>',
-  apiPassword: '<password>'
-};
-```
+## Running end-to-end tests
 
-It's being hidden by default.
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-> PS: Do not commit the credentials, you can try [OS Enviroment Variable](https://medium.com/@natchiketa/angular-cli-and-os-environment-variables-4cfa3b849659)
+## Further help
 
-### Running
-
-After the configuration just run:
-
-```
-> ng serve
-```
-
-### Deploy to gh-pages
-
-Make sure that the base-href points to your GH URL:
-
-```
-> ng build --prod --output-path dist/transactions --base-href "https:///the-glima.github.io/transactions/"
-```
-
-Deploy:
-
-```
-> ngh --dir=transactions
-```
-
-## Technologies Stack
-
-- Angular 7.2.0
-- Angular CLI
-- ES6
-- SCSS
-- NG SVG Sprite icons
-
-## Components
-
-- Credit Card Brand: shows the brand icon based on the card number/Regex
-- Dropdown: handle dropdown/select options
-- Filter: collection of dropdowns and submission of selected options
-- Header: contains the filters
-- Loading: an icon and text (optional) to show feedback when something it's loading
-- Transaction: shows transactions
-  - List: collection of transactions items
-  - Header: header for transtacions list or transaction item
-  - Item: single transaction with displaying the data
-    - Card: credit card info of single transaction
-
-### Services
-
-- DropdownService: handle selecting options on dropdown
-- TransactionService: get transactions from endpoint. Handle communication when transactions are updated or need to update.
-
-### Models
-
-All used interfaces.
-
-### Animations
-
-Collection of animation to use across components.
-
-### Themes
-
-You can write your own theme and apply your custom styles. There're currently two themes available: _Default_ and _Dark_ Theme.
-To create a new theme see how `src/assets/scss/theme/` are structured, the most important file that you'll edit is the `config/_variable.theme.scss`.
-
-#### Enabling a theme
-
-Import your new theme on `src/assets/scss/theme/import.theme.scss`.
-
-> IMPORTANT: Default Theme contains the base for all styles and should always be imported as last.
-
-#### Components SCSS
-
-_Required_: you need to import the theme file on each component to be able to access all global _styling/mixins/variables/functions_ E.g:
-
-component.scss
-
-```
-@import 'theme/import.theme';
-```
-
-## To Do
-
-- Create Pagination component
-- Tests
-
-## License
-
-Copyright (c) Gabriel Lima Licensed under the MIT license.
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

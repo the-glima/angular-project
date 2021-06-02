@@ -3,8 +3,8 @@ import { Observable, Subject } from 'rxjs';
 
 import { select, Store } from '@ngrx/store';
 
-import * as fromTransactionsModel from '@common/models';
-import { fadeInOutAnimation } from '@common/animations';
+import * as fromTransactionsModel from 'shared/models';
+import { fadeInOutAnimation } from 'shared/animations';
 
 import * as fromSelectors from '@transactions/selectors/transaction.selectors';
 import * as fromActions from '@transactions/actions';
@@ -17,7 +17,9 @@ import * as fromReducers from '@transactions/reducers';
   animations: [fadeInOutAnimation]
 })
 export class TransactionContainerComponent implements OnInit, OnDestroy {
-  transactions$: Observable<fromTransactionsModel.Transaction[]>;
+  transactions$!: Observable<fromTransactionsModel.Transaction[]>;
+  showError = false;
+  errorMessage = '';
 
   private onDestroy$ = new Subject();
 
@@ -25,7 +27,7 @@ export class TransactionContainerComponent implements OnInit, OnDestroy {
     return this.store.pipe(select(fromSelectors.selectAllTransactions));
   }
 
-  get isLoading(): Observable<boolean> {
+  get isLoading(): Observable<boolean | undefined> {
     return this.store.pipe(select(fromSelectors.selectTransactionsLoading));
   }
 

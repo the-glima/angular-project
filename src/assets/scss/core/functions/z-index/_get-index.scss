@@ -1,0 +1,41 @@
+// Core Function: get-zindex
+// A function to check the usage of an already z-index value
+// https://gist.github.com/the-glima/a4ff613d31c46886a6fd92f0354ebe19
+
+// @param $key: string - they key to look for in a z-indexes-map
+// @param $type: string - they variant of the key, default null
+// @param $map: map - a custom map list
+// @param $log-map: map - list of log flags to warn or thrown an error
+
+// @return number | null
+@function get-zindex($key, $type: null, $map: $z-indexes-map, $log-map: $z-indexes-log) {
+  $log-used-key: map-get($log-map, 'used-key');
+  $log-error: map-get($log-map, 'error');
+
+  @if (type-of($key) != string) {
+    @warn 'Value should be string. Property omitted!';
+    @return null;
+  }
+
+  $found-key: map-get($map, $key);
+
+  @if ($log-used-key) and ($found-key == null) {
+    @return warning('No key ' #{$key}' found in ' $z-indexes-map '. Property omitted.', $log-error);
+  }
+
+  @if type-of($found-key) == 'map' {
+    @if $log-used-key and not map-has-key($found-key, $type) {
+      @warn 'Second #{$found-key}';
+      $warning: warning(
+        'No type ' #{$type}' found for key ' #{$key}' in ' $z-indexes-map '. Property omitted.',
+        $log-error
+      );
+
+      @return null;
+    }
+
+    @return get-zindex($key: $type, $map: $found-key, $log-map: $log-map);
+  }
+
+  @return $found-key;
+}

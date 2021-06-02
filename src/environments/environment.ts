@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  transaction_api_url: 'https://run.mocky.io/v3/a5b931c3-ce21-4162-acb6-886f19206865'
+  transaction_api_url: 'http://localhost:8080/api'
 };

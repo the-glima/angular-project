@@ -1,0 +1,115 @@
+// Component: Transaction Item
+// -------------------------------------
+
+@import "core/mixins";
+@import "theme/default/variables";
+@import "theme/default/components";
+
+.transaction-item {
+  @include card;
+  margin-bottom: 20px;
+  font-size: 16px;
+  line-height: 20px;
+  transition: $transition;
+
+  @include breakpoint(min-width, bp-media('mobile')) {
+    @include card($reset: true);
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 18px;
+  }
+}
+
+.transaction-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 14px;
+
+  @include breakpoint(min-width, bp-media('mobile')) {
+    display: block;
+    cursor: pointer;
+    border-bottom: 1px solid theme-color('contrast', '100');
+
+    &:hover {
+      color: theme-color('text', 'base');
+      background-color: theme-color('gray', 'light');
+    }
+
+    .transaction-active & {
+      color: theme-color('text', 'base');
+      font-weight: 600;
+      background-color: theme-color('gray', 'light');
+      border-bottom-color: theme-color('contrast', '100');
+    }
+  }
+}
+
+// Header
+.transaction-header-item {
+  @include breakpoint(min-width, bp-media('mobile')) {
+    display: none
+  }
+}
+
+// Content
+.transaction-content {
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint(min-width, bp-media('mobile')) {
+    flex-direction: row;
+  }
+}
+
+.transaction-cell {
+  padding-bottom: 14px;
+  font-weight: 600;
+  text-align: right;
+
+  &:last-child { padding-bottom: 0; }
+
+  @include breakpoint(min-width, bp-media('mobile')) {
+    @include table-cell-space;
+    padding: 0 4px;
+    text-align: left;
+  }
+}
+
+.transaction-credit-card {
+  display: flex;
+  justify-content: flex-end;
+
+  @include breakpoint(min-width, bp-media('mobile')) {
+    justify-content: inherit;
+  }
+}
+
+.transaction-card-button {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
+
+  @include breakpoint(min-width, bp-media('mobile')) {
+    display: none;
+  }
+
+  .button {
+    display: flex;
+    align-items: center;
+
+    .transaction-active & {
+      @include button-secondary;
+    }
+  }
+
+  .icon-arrow-down {
+    margin-left: 14px;
+    width: 12px;
+    height: 6px;
+    transition: .15s cubic-bezier(0.6, -0.28, 0.74, 0.05);
+
+    .transaction-active & {
+      transform: rotate(-180deg);
+    }
+  }
+}

@@ -1,0 +1,43 @@
+// Theme Default: Layout - Scaffold
+// ----------------------------------------
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+html {
+  font-size: 16px;
+  min-width: 300px;
+  text-rendering: optimizeLegibility;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  height: 100%;
+  color: theme-color('text');
+  line-height: $base-line-height;
+  font-size: $base-font-size;
+  font-family: $base-font-family;
+  background-color: theme-color('bg');
+  -webkit-tap-highlight-color: theme-color('selection');
+
+  @include breakpoint(min-width, bp-media('mobile')) {
+    padding: 30px;
+  }
+}
+
+::-moz-selection { background: theme-color('selection'); }
+::selection { background: theme-color('selection'); }
+
+.container {
+  margin: 0 auto;
+  max-width: bp-media('xl');
+}

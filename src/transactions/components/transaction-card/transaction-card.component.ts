@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { Transaction } from '@common/models';
+import { Transaction } from 'shared/models';
 
 @Component({
   selector: 'app-transaction-card',
@@ -8,5 +8,5 @@ import { Transaction } from '@common/models';
   styleUrls: ['./transaction-card.component.scss']
 })
 export class TransactionCardComponent {
-  @Input() transaction: Transaction;
+  @Input() transaction!: Transaction;
 }

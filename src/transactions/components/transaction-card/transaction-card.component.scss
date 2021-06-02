@@ -1,13 +1,13 @@
 // Component: Transaction Card
 // -------------------------------------
 
-@import 'theme/import.theme';
+@import "theme/default/variables";
+@import "core";
 
 .transaction-info {
   display: flex;
   padding: 30px;
   flex-direction: column;
-  background-color: theme-color('grey', 'light');
 
   @include breakpoint(min-width, bp-media('lg')) {
     flex-direction: row;

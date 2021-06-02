@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 
 import { Action } from '@ngrx/store';
-import { Effect, ofType, Actions } from '@ngrx/effects';
+import { createEffect, ofType, Actions } from '@ngrx/effects';
 
 import { switchMap, map, catchError } from 'rxjs/operators';
 import { of, Observable } from 'rxjs';
 
 import { TransactionService } from '@transactions/services/transaction.service';
-import { Transaction } from '@common/models';
+import { Transaction } from 'shared/models';
 import { TransactionActions } from '@transactions/actions/transaction.actions';
 
 @Injectable()
@@ -17,21 +17,14 @@ export class TransactionsEffect {
     private transactionService: TransactionService
   ) {}
 
-  @Effect()
-  loadAll$: Observable<Action> = this.actions$.pipe(
+  loadAll$: Observable<Action> = createEffect(() => this.actions$.pipe(
     ofType<TransactionActions.LoadAll>(TransactionActions.ActionTypes.LoadAll),
     switchMap(action =>
-      this.transactionService.getTranscations().pipe(
-        map(
-          (response: Transaction[]) =>
-            new TransactionActions.LoadAllSuccess({
-              transactions: response
-            })
-        ),
-        catchError(error =>
-          of(new TransactionActions.LoadAllFaill({ error, action }))
-        )
+      this.transactionService.getTransactions().pipe(
+        map((response: any) => response?.data),
+        map((data: Transaction[]) => new TransactionActions.LoadAllSuccess({ transactions: data })),
+        catchError(error => of(new TransactionActions.LoadAllFail({ error, action })))
       )
     )
-  );
+  ));
 }

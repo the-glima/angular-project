@@ -1,0 +1,18 @@
+// Component: Credit Card Brand
+// -------------------------------------
+
+.credit-card-brand {
+  display: flex;
+  align-items: center;
+}
+
+.credit-card-icon {
+  display: flex;
+  width: 32px;
+  height: 30px;
+}
+
+.credit-card-name {
+  padding-left: 6px;
+  text-transform: capitalize;
+}

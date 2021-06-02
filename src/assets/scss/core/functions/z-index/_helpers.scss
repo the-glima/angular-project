@@ -1,0 +1,34 @@
+// Core Function warning:
+// A helper function that handles @error/@warn messages
+
+// @param $message: string - a message to be logged
+// @param $warn-error: boolean - toggle @error/@warn
+
+// @return null
+@function warning($message, $warn-error) {
+  @if $warn-error {
+    @error $message;
+  } @else {
+    @warn $message;
+  }
+
+  @return null;
+}
+
+// Function: map-get-key-by-value
+// A function to look for the key of a value
+
+// @param $value: string - a value to look for the key
+// @param $map: map - a map list
+
+// @return string | @error
+@function map-get-key($index, $map) {
+  @if $index {
+    $pair: nth($map, $index);
+    $key: nth($pair, 1);
+
+    @return $key;
+  }
+
+  @return null;
+}

@@ -1,0 +1,106 @@
+// Theme Default: Variables
+// -------------------------------------
+
+// Colors
+$theme-colors: (
+  'primary': (
+    'base': #213d8f // cobalt
+  ),
+  'secondary': (
+    'base': #8ec03f // avocado
+  ),
+  'accent': (
+    'base': #1db9de // topaz
+  ),
+  'success': (
+    'base': #8ec03f // avocado
+  ),
+  'danger': (
+    'base': #c03f3f // avocado
+  ),
+  'white': (
+    'base': #fff // greyish-brown
+  ),
+  'gray': (
+    'light': #f6f7fb, // pale-grey
+    'base': #e8ebf3, // pale-grey-two
+    'dark': darken(#e8ebf3, 10%)
+  ),
+  'contrast': (
+    '100': transparentize(#000, .9),
+    '200': transparentize(#000, .8),
+    '300': transparentize(#000, .7),
+    '400': transparentize(#000, .6),
+    '500': transparentize(#000, .5),
+    '600': transparentize(#000, .4),
+    '700': transparentize(#000, .3),
+    '800': transparentize(#000, .2),
+    '900': transparentize(#000, .1)
+  ),
+  'text': (
+    'base': #4a4a4a // greyish-brown
+  ),
+  'bg': (
+    'base': #e8ebf3 // pale-grey-two
+  ),
+  'card-bg': (
+    'base': #fff
+  ),
+  'selection': (
+    'base': transparentize(#213d8f, .7)
+  )
+) !default;
+
+$theme-colors-set: (
+  'primary',
+  'secondary',
+  'accent',
+  'success',
+  'danger',
+  'white'
+) !default;;
+
+// Text
+$root-font-size: 16px !default;
+$base-font-size: 1rem !default;
+$base-line-height: 1.5 !default;
+$font-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol' !default;
+$font-roboto: 'Roboto' !default;
+$base-font-family: $font-roboto, $font-system !default;
+
+// Utils
+$transition: .06s !default;
+$border-radius: 5px !default;
+
+// Shadow
+$box-shadow-default: 6px 6px 2px -3px !default;
+$box-shadow-color-default: transparentize(#000, .9) !default;
+
+// Breakpoints
+$breakpoints: (
+  'xs': 320px,
+  'sm': 576px,
+  'md': 768px,
+  'lg': 992px,
+  'xl': 1200px,
+  'mobile': 992px
+) !default;
+
+// A map containing all z-index layers
+// In case of having duplication of the same value
+// the first occurrence will be used (top to bottom)
+$z-indexes-map: (
+  'under': -1,
+  'default': 1,
+  'modal-overlay': 100,
+  'modal': 101,
+  'dialog': 200
+) !default;
+
+// To toggle warn or error messages
+$z-indexes-log: (
+  'used-key': true,
+  'used-value': true,
+  'less-than': false,
+  'error': true
+) !default;

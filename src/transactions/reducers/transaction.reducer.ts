@@ -1,25 +1,25 @@
 import { ActionReducerMap } from '@ngrx/store';
-import { EntityState, createEntityAdapter } from '@ngrx/entity';
+import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 
 import { TransactionActions } from '@transactions/actions/transaction.actions';
-import * as Models from '@common/models';
+import * as Models from 'shared/models';
 
 export interface TransactionState extends EntityState<Models.Transaction> {
-  selectedId: string;
-  isLoading: boolean;
-  isLoaded: boolean;
+  selectedId: string | undefined;
+  isLoading: boolean | undefined;
+  isLoaded: boolean | undefined;
 }
 
 export interface State {
   transactions: TransactionState;
 }
 
-export const adapater = createEntityAdapter<Models.Transaction>({
+export const adapter: EntityAdapter<Models.Transaction> = createEntityAdapter<Models.Transaction>({
   selectId: transaction => transaction.id,
   sortComparer: false
 });
 
-export const initialState: TransactionState = adapater.getInitialState({
+export const initialState: TransactionState = adapter.getInitialState({
   selectedId: undefined,
   isLoading: undefined,
   isLoaded: undefined
@@ -38,14 +38,14 @@ export function reducer(
     }
 
     case TransactionActions.ActionTypes.LoadAllSuccess: {
-      return adapater.addAll(action.payload.transactions, {
+      return adapter.addMany(action.payload.transactions, {
         ...state,
         isLoading: false,
         isLoaded: true
       });
     }
 
-    case TransactionActions.ActionTypes.LoadAllFaill: {
+    case TransactionActions.ActionTypes.LoadAllFail: {
       return {
         ...state,
         isLoading: true,
@@ -59,6 +59,6 @@ export function reducer(
   }
 }
 
-export const reducers: ActionReducerMap<State> = {
+export const reducers: ActionReducerMap<State, any> = {
   transactions: reducer
 };

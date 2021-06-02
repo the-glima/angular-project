@@ -1,7 +1,7 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 
-import { Transaction } from '@common/models';
-import { fadeInOutAnimation } from '@common/animations';
+import { Transaction } from 'shared/models';
+import { fadeInOutAnimation } from 'shared/animations';
 
 @Component({
   selector: 'app-transaction-item',
@@ -10,7 +10,7 @@ import { fadeInOutAnimation } from '@common/animations';
   animations: [fadeInOutAnimation]
 })
 export class TransactionItemComponent {
-  @Input() transaction: Transaction;
+  @Input() transaction!: Transaction;
   cardInfo = false;
 
   showCardInfo() {
