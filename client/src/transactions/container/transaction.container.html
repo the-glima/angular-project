@@ -11,9 +11,22 @@
     <app-transaction-item
       *ngFor="let transactionItem of (transactions | async)"
       [transaction]="transactionItem"
+      (clickEvent)="openModal($event)"
     ></app-transaction-item>
   </div>
 </div>
+
+<ng-template #modalTemplate let-modalData="data">
+  <p>
+    You are about to remove <strong>{{ modalData.card.holderName }} </strong>  with a credit card with the last 4 digits: <strong>XXXX {{ modalData.card.lastFourDigits }}</strong>. Are you sure?</p> 
+  <p>
+  <div class="modal-actions">
+    <button>Yes, I'm sure</button>
+    <button>No, not actually</button>
+  </div>
+</ng-template>
+
+<app-modal [model]="modalModel" modalTitle="Modal Dialog"></app-modal>
 
 <app-loading
   *ngIf="!(loadError | async)"

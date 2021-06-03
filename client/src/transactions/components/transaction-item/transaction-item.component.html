@@ -1,4 +1,4 @@
-<div class="transaction-item" [ngClass]="{'transaction-active': showCardInfo }">
+<div class="transaction-item" [ngClass]="{'transaction-active': cardInfo }">
   <div class="transaction-row" (click)="showCardInfo()">
     <app-transaction-header class="transaction-header-item"></app-transaction-header>
 
@@ -11,13 +11,19 @@
       <div class="transaction-cell">{{ transaction.action }}</div>
       <div class="transaction-cell">{{ transaction.amount | currency: transaction.currencyCode }}</div>
       <div class="transaction-cell">{{ transaction.currencyCode }}</div>
+      <div class="transaction-cell transaction-modal-btn">
+        <button (click)="onClick($event, transaction)">
+          <svg-icon-sprite
+            [src]="'assets/sprites/sprite.svg#icon-magnifier'"
+            [class]="'icon-magnifier'"
+          ></svg-icon-sprite>
+        </button>
+      </div>
     </div>
   </div>
 
   <div class="transaction-card-button">
-    <button class="btn btn-primary btn-sm" (click)="showCardInfo()">
-      <span>View Card Info</span>
-    </button>
+    <button (click)="showCardInfo()">View Card Info</button>
   </div>
 
   <app-transaction-card *ngIf="cardInfo" [transaction]="transaction" [@fadeInOutAnimation]></app-transaction-card>

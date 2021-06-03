@@ -1,0 +1,20 @@
+// Core Mixin: Visibility
+// --------------------------------------------
+
+@mixin visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+@mixin invisible {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@mixin hide {
+  display: none;
+}
+
+@mixin show {
+  display: block;
+}

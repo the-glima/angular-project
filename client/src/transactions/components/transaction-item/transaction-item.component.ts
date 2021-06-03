@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
 
 import { Transaction } from '@shared/models';
 import { fadeInOutAnimation } from '@shared/animations';
@@ -11,9 +11,16 @@ import { fadeInOutAnimation } from '@shared/animations';
 })
 export class TransactionItemComponent {
   @Input() transaction!: Transaction;
+  @Output() clickEvent = new EventEmitter<any>();
   cardInfo = false;
 
   showCardInfo() {
     this.cardInfo = !this.cardInfo;
+  }
+
+  onClick(event: any, transaction: Transaction) {
+    event.stopPropagation();
+
+    this.clickEvent.emit(transaction);
   }
 }

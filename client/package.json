@@ -1,12 +1,12 @@
 {
-  "name": "angular-project",
+  "name": "angular-project-client",
   "version": "0.2.0",
   "scripts": {
     "ng": "ng",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "start": "ng serve",
+    "start": "ng serve --open",
     "generate:svg-sprite": "npx svg2sprite ./src/assets/icons ./src/assets/sprites/sprite.svg --stripAttrs fill --stripAttrs stroke --stripAttrs id",
     "generate:svg-multicolor-sprite": "npx svg2sprite ./src/assets/icons ./src/assets/sprites/sprite.svg",
     "sprite": "yarn generate:svg-sprite && yarn generate:svg-multicolor-sprite"

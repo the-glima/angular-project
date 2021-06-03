@@ -1,0 +1,14 @@
+<div class="modal" [class.open]="state === 'open'">
+  <div class="modal-header">
+    <div><strong>{{ title }}</strong></div>
+    <button (click)="close()">x</button>
+  </div>
+  <div class="modal-content">
+    <ng-container *ngTemplateOutlet="model.template; context: model"></ng-container>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-default" (click)="close()">{{ closeText }}</button>
+  </div>
+</div>
+
+<div class="modal-overlay" [class.open]="state === 'open'" (click)="close()"></div>

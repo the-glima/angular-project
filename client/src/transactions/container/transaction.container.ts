@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, TemplateRef, ViewChild } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 
 import { select, Store } from '@ngrx/store';
@@ -9,6 +9,7 @@ import { fadeInOutAnimation } from '@shared/animations';
 import * as fromSelectors from '@transactions/selectors/transaction.selectors';
 import * as fromActions from '@transactions/actions';
 import * as fromReducers from '@transactions/reducers';
+import { ModalService } from '../../shared/services/modal.service';
 
 @Component({
   selector: 'app-transactions',
@@ -17,8 +18,10 @@ import * as fromReducers from '@transactions/reducers';
   animations: [fadeInOutAnimation]
 })
 export class TransactionContainerComponent implements OnInit, OnDestroy {
+  @ViewChild('modalTemplate', {static : true}) modalTemplate!: TemplateRef<any>;
   transactions$!: Observable<fromTransactionsModel.Transaction[]>;
   loadError$!: Observable<any>;
+  modalModel = {};
 
   private onDestroy$ = new Subject();
 
@@ -34,7 +37,10 @@ export class TransactionContainerComponent implements OnInit, OnDestroy {
     return this.store.pipe(select(fromSelectors.selectTransactionsLoadError));
   }
 
-  constructor(private store: Store<fromReducers.TransactionState>) {}
+  constructor(
+    private store: Store<fromReducers.TransactionState>,
+    private modalService: ModalService,
+  ) {}
 
   ngOnInit() {
     this.store.dispatch(new fromActions.TransactionActions.LoadAll());
@@ -43,5 +49,14 @@ export class TransactionContainerComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.onDestroy$.next();
     this.store.dispatch(new fromActions.TransactionActions.Reset());
+  }
+
+  openModal(modalContent: any) {
+    this.modalModel =  {
+      template : this.modalTemplate,
+      data: modalContent
+    }
+
+    this.modalService.open();
   }
 }

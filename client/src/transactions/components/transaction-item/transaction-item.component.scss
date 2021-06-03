@@ -66,10 +66,12 @@
   padding-bottom: 14px;
   font-weight: 600;
   text-align: right;
-
+  
   &:last-child { padding-bottom: 0; }
-
+  
   @include breakpoint(min-width, bp-media('mobile')) {
+    display: flex;
+    align-items: center;
     @include table-cell-space;
     padding: 0 4px;
     text-align: left;
@@ -87,17 +89,19 @@
 
 .transaction-card-button {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   padding-bottom: 10px;
 
   @include breakpoint(min-width, bp-media('mobile')) {
     display: none;
   }
 
-  .btn {
+  button {
+    @extend %btn;
+    @extend %btn-secondary;
     display: flex;
     align-items: center;
-
+  
     .transaction-active & {
       @extend %btn-primary;
     }
@@ -113,4 +117,14 @@
       transform: rotate(-180deg);
     }
   }
+}
+
+.transaction-modal-btn {
+  justify-content: center;
+
+  button {
+    @include square(30px);
+    text-align: center;
+    color: theme-color('accent');
+    }
 }

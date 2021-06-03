@@ -3,7 +3,7 @@
 
 @import "theme/default/variables";
 @import "core";
-@import "theme/default/variables";
+@import "theme/default/components";
 
 .transaction-table {
   position: relative;
@@ -62,4 +62,22 @@
 .transactions-loading {
   display: block;
   padding-top: 40px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+
+  button {
+    @extend %btn;
+    
+    &:first-child { 
+      @extend %btn-secondary;
+    }
+    
+    &:last-child { 
+      @extend %btn-danger;
+    }
+  }
 }

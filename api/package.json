@@ -2,8 +2,9 @@
   "name": "angular-project-api",
   "version": "0.2.0",
   "description": "API for Angular Project Client.",
+  "license": "MIT",
   "scripts": {
-    "serve": "node server.js"
+    "start": "node server.js"
   },
   "devDependencies": {
     "faker": "^5.5.3",

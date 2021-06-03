@@ -9,13 +9,16 @@ import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { DropdownService } from './services/dropdown.service';
 import { HeaderComponent } from './components/header/header.component';
+import { ModalComponent } from './components/modal/modal.component';
+import { ModalService } from './services/modal.service';
 
 const COMPONENTS = [
   CreditCardBrandComponent,
   LoadingComponent,
   DropdownComponent,
   FilterComponent,
-  HeaderComponent
+  HeaderComponent,
+  ModalComponent
 ]
 
 @NgModule({
@@ -26,6 +29,6 @@ const COMPONENTS = [
   ],
   declarations: [...COMPONENTS],
   exports: [...COMPONENTS, IconSpriteModule],
-  providers: [DropdownService]
+  providers: [DropdownService, ModalService]
 })
 export class SharedModule {}

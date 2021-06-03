@@ -1,0 +1,13 @@
+{
+  "name": "angular-project",
+  "version": "0.2.0",
+  "description": "API for Angular Project Client.",
+  "license": "MIT",
+  "scripts": {
+    "install:api": "cd api && yarn",
+    "install:client": "cd client && yarn",
+    "install:all": "yarn install:api && yarn install:client",
+    "start:api": "cd api && yarn start",
+    "start:client": "cd client && yarn start"
+  }
+}
